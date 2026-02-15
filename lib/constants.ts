@@ -1,4 +1,12 @@
-import type { FleetItem, ServiceItem, WhyUsItem } from './types';
+import type { FleetItem, FuelType, ServiceItem, WhyUsItem } from './types';
+
+export const fuelFilters: { label: string; value: FuelType | 'Semua' }[] = [
+  { label: 'Semua', value: 'Semua' },
+  { label: 'Bensin', value: 'Bensin' },
+  { label: 'Diesel', value: 'Diesel' },
+  { label: 'Hybrid', value: 'Hybrid' },
+  { label: 'Elektrik', value: 'Elektrik' },
+];
 
 export const services: ServiceItem[] = [
   {
@@ -28,37 +36,129 @@ export const services: ServiceItem[] = [
 ];
 
 export const fleet: FleetItem[] = [
+  // ── Bensin ──
+  {
+    id: 'agya',
+    name: 'Toyota Agya',
+    category: 'City Car',
+    fuel: 'Bensin',
+    price: 'Mulai Rp 250rb/hari',
+    year: '2023',
+    seats: 5,
+    transmission: 'Automatic',
+  },
+  {
+    id: 'xenia',
+    name: 'Daihatsu Xenia',
+    category: 'MPV',
+    fuel: 'Bensin',
+    price: 'Mulai Rp 350rb/hari',
+    year: '2023',
+    seats: 7,
+    transmission: 'Automatic',
+  },
+  {
+    id: 'avanza',
+    name: 'Toyota Avanza',
+    category: 'MPV',
+    fuel: 'Bensin',
+    price: 'Mulai Rp 400rb/hari',
+    year: '2023',
+    seats: 7,
+    transmission: 'Automatic',
+  },
   {
     id: 'innova-reborn',
     name: 'Toyota Innova Reborn',
     category: 'MPV',
-    price: 'Mulai dari Rp 600rb/hari',
-    features: ['7 Penumpang', 'Bensin', 'Automatic'],
-    emoji: '🚐',
+    fuel: 'Bensin',
+    price: 'Mulai Rp 600rb/hari',
+    year: '2022',
+    seats: 7,
+    transmission: 'Automatic',
   },
   {
-    id: 'fortuner',
-    name: 'Toyota Fortuner',
+    id: 'crv',
+    name: 'Honda CR-V',
     category: 'SUV',
-    price: 'Mulai dari Rp 900rb/hari',
-    features: ['7 Penumpang', 'Diesel', 'Automatic'],
-    emoji: '🚙',
-  },
-  {
-    id: 'camry',
-    name: 'Toyota Camry',
-    category: 'Sedan',
-    price: 'Mulai dari Rp 800rb/hari',
-    features: ['5 Penumpang', 'Bensin', 'Automatic'],
-    emoji: '🚗',
+    fuel: 'Bensin',
+    price: 'Mulai Rp 800rb/hari',
+    year: '2023',
+    seats: 7,
+    transmission: 'Automatic',
   },
   {
     id: 'alphard',
     name: 'Toyota Alphard',
     category: 'Luxury MPV',
+    fuel: 'Bensin',
     price: 'Hubungi Kami',
-    features: ['7 Penumpang', 'Bensin', 'Premium'],
-    emoji: '🚐',
+    year: '2023',
+    seats: 7,
+    transmission: 'Automatic',
+  },
+  // ── Diesel ──
+  {
+    id: 'fortuner',
+    name: 'Toyota Fortuner',
+    category: 'SUV',
+    fuel: 'Diesel',
+    price: 'Mulai Rp 900rb/hari',
+    year: '2023',
+    seats: 7,
+    transmission: 'Automatic',
+  },
+  {
+    id: 'pajero',
+    name: 'Mitsubishi Pajero Sport',
+    category: 'SUV',
+    fuel: 'Diesel',
+    price: 'Mulai Rp 900rb/hari',
+    year: '2023',
+    seats: 7,
+    transmission: 'Automatic',
+  },
+  // ── Hybrid ──
+  {
+    id: 'innova-zenix',
+    name: 'Toyota Innova Zenix',
+    category: 'MPV',
+    fuel: 'Hybrid',
+    price: 'Mulai Rp 750rb/hari',
+    year: '2024',
+    seats: 7,
+    transmission: 'Automatic',
+  },
+  // ── Elektrik ──
+  {
+    id: 'wuling-air-ev',
+    name: 'Wuling Air EV',
+    category: 'City Car',
+    fuel: 'Elektrik',
+    price: 'Mulai Rp 350rb/hari',
+    year: '2024',
+    seats: 4,
+    transmission: 'Automatic',
+  },
+  {
+    id: 'chery-omoda',
+    name: 'Chery Omoda E5',
+    category: 'SUV',
+    fuel: 'Elektrik',
+    price: 'Mulai Rp 600rb/hari',
+    year: '2024',
+    seats: 5,
+    transmission: 'Automatic',
+  },
+  {
+    id: 'byd-atto3',
+    name: 'BYD Atto 3',
+    category: 'SUV',
+    fuel: 'Elektrik',
+    price: 'Mulai Rp 650rb/hari',
+    year: '2024',
+    seats: 5,
+    transmission: 'Automatic',
   },
 ];
 
