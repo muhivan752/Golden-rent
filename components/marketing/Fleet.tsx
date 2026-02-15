@@ -2,12 +2,11 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { MessageCircle, Fuel, Zap, Droplets, Leaf, Users, Calendar, Settings2 } from 'lucide-react';
+import { MessageCircle, Fuel, Zap, Droplets, Leaf, Users, Calendar, Settings2, KeyRound, UserCheck, Route } from 'lucide-react';
 import Container from '@/components/shared/Container';
-import Button from '@/components/shared/Button';
+import BookingModal from '@/components/marketing/BookingModal';
 import { fleet, fuelFilters } from '@/lib/constants';
-import { siteConfig } from '@/config/site';
-import type { FuelType } from '@/lib/types';
+import type { FleetItem, FuelType } from '@/lib/types';
 
 const fuelIcons: Record<FuelType, typeof Fuel> = {
   Bensin: Fuel,
@@ -32,6 +31,7 @@ const placeholderGradients: Record<FuelType, string> = {
 
 export default function Fleet() {
   const [activeFilter, setActiveFilter] = useState<FuelType | 'Semua'>('Semua');
+  const [selectedVehicle, setSelectedVehicle] = useState<FleetItem | null>(null);
 
   const filtered =
     activeFilter === 'Semua'
@@ -48,6 +48,22 @@ export default function Fleet() {
           <p className="mx-auto max-w-2xl text-lg text-slate-600">
             Pilihan kendaraan berkualitas untuk berbagai kebutuhan perjalanan Anda
           </p>
+
+          {/* Layanan info */}
+          <div className="mx-auto mt-6 flex flex-wrap justify-center gap-3 text-sm">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-slate-600 ring-1 ring-slate-200">
+              <KeyRound className="h-3.5 w-3.5 text-gold" />
+              Lepas Kunci
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-slate-600 ring-1 ring-slate-200">
+              <UserCheck className="h-3.5 w-3.5 text-gold" />
+              Dengan Driver
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-slate-600 ring-1 ring-slate-200">
+              <Route className="h-3.5 w-3.5 text-gold" />
+              Luar Kota &amp; Dinas
+            </span>
+          </div>
         </div>
 
         {/* Filter Tabs */}
@@ -128,23 +144,33 @@ export default function Fleet() {
                     </span>
                   </div>
 
-                  <Button
-                    href={`${siteConfig.whatsappUrl}?text=${encodeURIComponent(`Halo, saya tertarik dengan ${vehicle.name}. Bisa info lebih lanjut?`)}`}
-                    variant="primary"
-                    size="md"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 w-full"
+                  {/* Booking Button */}
+                  <button
+                    onClick={() => setSelectedVehicle(vehicle)}
+                    className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-2.5 text-sm font-semibold text-navy-900 shadow-lg shadow-gold/25 transition-all duration-200 hover:bg-gold-300"
                   >
                     <MessageCircle className="h-4 w-4" />
                     Booking Sekarang
-                  </Button>
+                  </button>
                 </div>
               </div>
             );
           })}
         </div>
+
+        {/* Sewa info */}
+        <p className="mt-8 text-center text-sm text-slate-500">
+          Tersedia sewa <strong>Harian</strong>, <strong>Mingguan</strong>, <strong>Bulanan</strong>, dan <strong>Tahunan</strong> &mdash; pilih durasi saat booking
+        </p>
       </Container>
+
+      {/* Booking Modal */}
+      {selectedVehicle && (
+        <BookingModal
+          vehicle={selectedVehicle}
+          onClose={() => setSelectedVehicle(null)}
+        />
+      )}
     </section>
   );
 }
