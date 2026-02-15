@@ -3,6 +3,7 @@ import Services from '@/components/marketing/Services';
 import Fleet from '@/components/marketing/Fleet';
 import WhyUs from '@/components/marketing/WhyUs';
 import Coverage from '@/components/marketing/Coverage';
+import ComingSoon from '@/components/marketing/ComingSoon';
 import CTA from '@/components/marketing/CTA';
 import { siteConfig } from '@/config/site';
 
@@ -43,6 +44,7 @@ export default function HomePage() {
       <Fleet />
       <WhyUs />
       <Coverage />
+      <ComingSoon />
       <CTA />
     </>
   );
