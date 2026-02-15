@@ -1,0 +1,109 @@
+import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
+import Container from './Container';
+import { siteConfig } from '@/config/site';
+
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-slate-900 text-slate-300">
+      <Container>
+        <div className="grid gap-10 py-16 md:grid-cols-3">
+          {/* Info Perusahaan */}
+          <div>
+            <div className="mb-4 flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gold text-navy-900 font-bold text-lg">
+                G
+              </div>
+              <div>
+                <p className="font-bold text-white text-lg">Golden Rent</p>
+                <p className="text-sm text-slate-400">PT. Solusi Rental Indonesia</p>
+              </div>
+            </div>
+            <p className="text-sm leading-relaxed text-slate-400">
+              Partner mobilitas terpercaya se-Indonesia. Menyediakan layanan rental kendaraan
+              untuk kebutuhan personal dan corporate.
+            </p>
+          </div>
+
+          {/* Navigasi */}
+          <div>
+            <h3 className="mb-4 font-semibold text-white">Navigasi</h3>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <a href="#services" className="transition-colors hover:text-gold">
+                  Layanan
+                </a>
+              </li>
+              <li>
+                <a href="#fleet" className="transition-colors hover:text-gold">
+                  Armada
+                </a>
+              </li>
+              <li>
+                <a href="#coverage" className="transition-colors hover:text-gold">
+                  Jangkauan
+                </a>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-gold"
+                >
+                  Kontak
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Kontak */}
+          <div>
+            <h3 className="mb-4 font-semibold text-white">Hubungi Kami</h3>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-start gap-2">
+                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-gold" />
+                <span>{siteConfig.contacts.address}</span>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 transition-colors hover:text-gold"
+                >
+                  <MessageCircle className="h-4 w-4 text-gold" />
+                  {siteConfig.contacts.whatsappDisplay}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${siteConfig.contacts.phone}`}
+                  className="flex items-center gap-2 transition-colors hover:text-gold"
+                >
+                  <Phone className="h-4 w-4 text-gold" />
+                  {siteConfig.contacts.phoneDisplay}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${siteConfig.contacts.email}`}
+                  className="flex items-center gap-2 transition-colors hover:text-gold"
+                >
+                  <Mail className="h-4 w-4 text-gold" />
+                  <span className="break-all">{siteConfig.contacts.email}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-slate-800 py-6 text-center text-sm text-slate-500">
+          &copy; {currentYear} Golden Rent &mdash; PT. Solusi Rental Indonesia. All rights reserved.
+        </div>
+      </Container>
+    </footer>
+  );
+}
