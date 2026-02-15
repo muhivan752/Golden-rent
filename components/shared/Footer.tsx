@@ -41,6 +41,16 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#about" className="transition-colors hover:text-gold">
+                  Tentang Kami
+                </a>
+              </li>
+              <li>
+                <a href="#testimonials" className="transition-colors hover:text-gold">
+                  Testimonial
+                </a>
+              </li>
+              <li>
                 <a href="#coverage" className="transition-colors hover:text-gold">
                   Jangkauan
                 </a>

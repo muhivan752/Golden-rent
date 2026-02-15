@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: 'Golden Rent',
   description:
-    'Solusi rental kendaraan terpercaya se-Indonesia. Armada modern, driver profesional, harga transparan. Tersedia di 20+ kota untuk kebutuhan personal dan corporate.',
+    'Solusi rental kendaraan terpercaya se-Indonesia. 100+ armada, driver profesional, harga transparan. Tersedia di 10+ kota untuk kebutuhan personal dan corporate.',
   url: 'https://goldenrent.vercel.app',
   ogImage: '/og-image.png',
   keywords: [

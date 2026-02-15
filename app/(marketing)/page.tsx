@@ -1,7 +1,10 @@
 import Hero from '@/components/marketing/Hero';
+import Stats from '@/components/marketing/Stats';
 import Services from '@/components/marketing/Services';
 import Fleet from '@/components/marketing/Fleet';
 import WhyUs from '@/components/marketing/WhyUs';
+import About from '@/components/marketing/About';
+import Testimonials from '@/components/marketing/Testimonials';
 import Coverage from '@/components/marketing/Coverage';
 import ComingSoon from '@/components/marketing/ComingSoon';
 import CTA from '@/components/marketing/CTA';
@@ -40,9 +43,12 @@ export default function HomePage() {
       />
 
       <Hero />
+      <Stats />
       <Services />
       <Fleet />
       <WhyUs />
+      <About />
+      <Testimonials />
       <Coverage />
       <ComingSoon />
       <CTA />
