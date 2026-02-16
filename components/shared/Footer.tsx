@@ -56,6 +56,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#faq" className="transition-colors hover:text-gold">
+                  FAQ
+                </a>
+              </li>
+              <li>
                 <a
                   href={siteConfig.whatsappUrl}
                   target="_blank"

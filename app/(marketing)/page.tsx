@@ -1,12 +1,14 @@
 import Hero from '@/components/marketing/Hero';
-import Stats from '@/components/marketing/Stats';
 import Services from '@/components/marketing/Services';
+import HowItWorks from '@/components/marketing/HowItWorks';
 import Fleet from '@/components/marketing/Fleet';
 import WhyUs from '@/components/marketing/WhyUs';
+import Stats from '@/components/marketing/Stats';
 import About from '@/components/marketing/About';
 import Testimonials from '@/components/marketing/Testimonials';
 import Coverage from '@/components/marketing/Coverage';
 import ComingSoon from '@/components/marketing/ComingSoon';
+import FAQ from '@/components/marketing/FAQ';
 import CTA from '@/components/marketing/CTA';
 import { siteConfig } from '@/config/site';
 
@@ -43,14 +45,16 @@ export default function HomePage() {
       />
 
       <Hero />
-      <Stats />
       <Services />
+      <HowItWorks />
       <Fleet />
       <WhyUs />
+      <Stats />
       <About />
       <Testimonials />
       <Coverage />
       <ComingSoon />
+      <FAQ />
       <CTA />
     </>
   );
