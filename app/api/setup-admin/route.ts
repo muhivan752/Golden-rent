@@ -4,6 +4,25 @@ import { NextResponse } from 'next/server';
 const ADMIN_EMAIL = 'muhivan752@gmail.com';
 const ADMIN_PASSWORD = 'admin123!';
 
+async function ensureStorageBucket(supabase: ReturnType<typeof createClient>) {
+  // Check if bucket exists
+  const { data: buckets } = await supabase.storage.listBuckets();
+  const bucketExists = buckets?.some((b) => b.id === 'fleet-images');
+
+  if (!bucketExists) {
+    const { error } = await supabase.storage.createBucket('fleet-images', {
+      public: true,
+      allowedMimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/gif'],
+      fileSizeLimit: 5 * 1024 * 1024, // 5MB
+    });
+    if (error && !error.message.includes('already exists')) {
+      return { created: false, error: error.message };
+    }
+  }
+
+  return { created: !bucketExists, error: null };
+}
+
 export async function GET() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -21,6 +40,9 @@ export async function GET() {
     const supabase = createClient(supabaseUrl, supabaseServiceKey, {
       auth: { autoRefreshToken: false, persistSession: false },
     });
+
+    // Ensure storage bucket exists
+    const storageResult = await ensureStorageBucket(supabase);
 
     const { data, error } = await supabase.auth.admin.createUser({
       email: ADMIN_EMAIL,
@@ -49,6 +71,7 @@ export async function GET() {
             message: 'Admin password reset & email confirmed!',
             email: ADMIN_EMAIL,
             password: ADMIN_PASSWORD,
+            storage: storageResult.created ? 'fleet-images bucket created!' : 'fleet-images bucket already exists',
             note: 'You can now login at /admin/login. Delete this API route after setup.',
           });
         }
@@ -61,6 +84,7 @@ export async function GET() {
       message: 'Admin account created successfully (email auto-confirmed)!',
       email: data.user?.email,
       password: ADMIN_PASSWORD,
+      storage: storageResult.created ? 'fleet-images bucket created!' : 'fleet-images bucket already exists',
       note: 'You can now login at /admin/login. Delete this API route after setup.',
     });
   }

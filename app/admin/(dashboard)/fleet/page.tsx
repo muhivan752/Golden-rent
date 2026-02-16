@@ -32,6 +32,7 @@ export default function AdminFleetPage() {
   const [form, setForm] = useState<FormData>(emptyForm);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
 
   const supabase = createClient();
 
@@ -53,6 +54,7 @@ export default function AdminFleetPage() {
     if (!file) return;
 
     setUploading(true);
+    setUploadError(null);
     const ext = file.name.split('.').pop();
     const fileName = `${Date.now()}.${ext}`;
 
@@ -60,10 +62,14 @@ export default function AdminFleetPage() {
       .from('fleet-images')
       .upload(fileName, file, { upsert: true });
 
-    if (!error) {
-      const { data } = supabase.storage.from('fleet-images').getPublicUrl(fileName);
-      setForm((prev) => ({ ...prev, image_url: data.publicUrl }));
+    if (error) {
+      setUploadError(`Upload gagal: ${error.message}. Pastikan storage bucket sudah dibuat via /api/setup-admin`);
+      setUploading(false);
+      return;
     }
+
+    const { data } = supabase.storage.from('fleet-images').getPublicUrl(fileName);
+    setForm((prev) => ({ ...prev, image_url: data.publicUrl }));
     setUploading(false);
   };
 
@@ -170,6 +176,9 @@ export default function AdminFleetPage() {
                     )}
                     <input type="file" accept="image/*" onChange={handleUpload} className="hidden" />
                   </label>
+                )}
+                {uploadError && (
+                  <p className="mt-2 text-xs text-red-500">{uploadError}</p>
                 )}
               </div>
 
