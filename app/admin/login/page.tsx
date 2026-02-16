@@ -16,17 +16,33 @@ export default function AdminLoginPage() {
     setError('');
     setLoading(true);
 
-    const supabase = createClient();
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    try {
+      const supabase = createClient();
 
-    if (error) {
-      setError('Email atau password salah');
+      // Add timeout to prevent infinite loading
+      const timeoutPromise = new Promise<{ error: { message: string } }>((resolve) =>
+        setTimeout(() => resolve({ error: { message: 'timeout' } }), 15000),
+      );
+
+      const authPromise = supabase.auth.signInWithPassword({ email, password });
+      const result = await Promise.race([authPromise, timeoutPromise]);
+
+      if (result.error) {
+        if (result.error.message === 'timeout') {
+          setError('Tidak bisa terhubung ke server. Periksa konfigurasi Supabase.');
+        } else {
+          setError('Email atau password salah');
+        }
+        setLoading(false);
+        return;
+      }
+
+      router.push('/admin');
+      router.refresh();
+    } catch {
+      setError('Terjadi kesalahan koneksi. Periksa environment variables.');
       setLoading(false);
-      return;
     }
-
-    router.push('/admin');
-    router.refresh();
   };
 
   return (
@@ -59,7 +75,8 @@ export default function AdminLoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-900 outline-none transition-colors focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20"
+              disabled={loading}
+              className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-900 outline-none transition-colors focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 disabled:opacity-50"
               placeholder="admin@goldenrent.co.id"
             />
           </div>
@@ -74,7 +91,8 @@ export default function AdminLoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-900 outline-none transition-colors focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20"
+              disabled={loading}
+              className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-900 outline-none transition-colors focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 disabled:opacity-50"
               placeholder="••••••••"
             />
           </div>
