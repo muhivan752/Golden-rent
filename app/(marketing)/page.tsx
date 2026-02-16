@@ -11,8 +11,47 @@ import ComingSoon from '@/components/marketing/ComingSoon';
 import FAQ from '@/components/marketing/FAQ';
 import CTA from '@/components/marketing/CTA';
 import { siteConfig } from '@/config/site';
+import { getFleet, getTestimonials, getFAQs } from '@/lib/supabase/queries';
+import type { FleetItem } from '@/lib/types';
 
-export default function HomePage() {
+export default async function HomePage() {
+  // Fetch data from Supabase (returns null if not configured — uses defaults)
+  const [dbFleet, dbTestimonials, dbFaqs] = await Promise.all([
+    getFleet(),
+    getTestimonials(),
+    getFAQs(),
+  ]);
+
+  // Map Supabase fleet data to FleetItem format
+  const fleetData: FleetItem[] | undefined = dbFleet?.map((item) => ({
+    id: item.id,
+    name: item.name,
+    category: item.category,
+    fuel: item.fuel,
+    price: item.price,
+    year: item.year,
+    seats: item.seats,
+    transmission: item.transmission,
+    image: item.image_url ?? undefined,
+  }));
+
+  // Map testimonials
+  const testimonialData = dbTestimonials?.map((item) => ({
+    name: item.name,
+    role: item.role,
+    company: item.company,
+    initials: item.initials,
+    rating: item.rating,
+    text: item.text,
+    location: item.location,
+  }));
+
+  // Map FAQs
+  const faqData = dbFaqs?.map((item) => ({
+    question: item.question,
+    answer: item.answer,
+  }));
+
   return (
     <>
       {/* JSON-LD Structured Data */}
@@ -47,14 +86,14 @@ export default function HomePage() {
       <Hero />
       <Services />
       <HowItWorks />
-      <Fleet />
+      <Fleet data={fleetData} />
       <WhyUs />
       <Stats />
       <About />
-      <Testimonials />
+      <Testimonials data={testimonialData} />
       <Coverage />
       <ComingSoon />
-      <FAQ />
+      <FAQ data={faqData} />
       <CTA />
     </>
   );

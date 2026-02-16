@@ -5,7 +5,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { Star, Quote, MapPin } from 'lucide-react';
 import Container from '@/components/shared/Container';
 
-interface Testimonial {
+export interface TestimonialData {
   name: string;
   role: string;
   company: string;
@@ -15,7 +15,7 @@ interface Testimonial {
   location: string;
 }
 
-const testimonials: Testimonial[] = [
+const defaultTestimonials: TestimonialData[] = [
   {
     name: 'Budi Santoso',
     role: 'HR Manager',
@@ -63,7 +63,12 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-export default function Testimonials() {
+interface TestimonialsProps {
+  data?: TestimonialData[];
+}
+
+export default function Testimonials({ data }: TestimonialsProps) {
+  const testimonials = data && data.length > 0 ? data : defaultTestimonials;
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: 'start',

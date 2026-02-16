@@ -29,14 +29,19 @@ const placeholderGradients: Record<FuelType, string> = {
   Elektrik: 'from-violet-800 to-violet-950',
 };
 
-export default function Fleet() {
+interface FleetProps {
+  data?: FleetItem[];
+}
+
+export default function Fleet({ data }: FleetProps) {
+  const fleetData = data && data.length > 0 ? data : fleet;
   const [activeFilter, setActiveFilter] = useState<FuelType | 'Semua'>('Semua');
   const [selectedVehicle, setSelectedVehicle] = useState<FleetItem | null>(null);
 
   const filtered =
     activeFilter === 'Semua'
-      ? fleet
-      : fleet.filter((v) => v.fuel === activeFilter);
+      ? fleetData
+      : fleetData.filter((v) => v.fuel === activeFilter);
 
   return (
     <section id="fleet" className="bg-slate-50 py-20 sm:py-28">

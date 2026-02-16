@@ -4,12 +4,12 @@ import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import Container from '@/components/shared/Container';
 
-interface FAQItem {
+export interface FAQData {
   question: string;
   answer: string;
 }
 
-const faqs: FAQItem[] = [
+const defaultFaqs: FAQData[] = [
   {
     question: 'Apa saja yang termasuk dalam harga rental?',
     answer:
@@ -52,7 +52,12 @@ const faqs: FAQItem[] = [
   },
 ];
 
-export default function FAQ() {
+interface FAQProps {
+  data?: FAQData[];
+}
+
+export default function FAQ({ data }: FAQProps) {
+  const faqs = data && data.length > 0 ? data : defaultFaqs;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (index: number) => {
