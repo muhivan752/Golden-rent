@@ -30,8 +30,14 @@ export default function AdminLoginPage() {
       if (result.error) {
         if (result.error.message === 'timeout') {
           setError('Tidak bisa terhubung ke server. Periksa konfigurasi Supabase.');
-        } else {
+        } else if (result.error.message === 'Invalid login credentials') {
           setError('Email atau password salah');
+        } else if (result.error.message === 'Email not confirmed') {
+          setError('Email belum dikonfirmasi. Cek inbox email atau buat ulang akun via /api/setup-admin');
+        } else if (result.error.message === 'Invalid API key') {
+          setError('API key Supabase tidak valid. Periksa NEXT_PUBLIC_SUPABASE_ANON_KEY di .env.local');
+        } else {
+          setError(`Login gagal: ${result.error.message}`);
         }
         setLoading(false);
         return;
