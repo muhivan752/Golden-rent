@@ -66,7 +66,7 @@ export default function BookingModal({ vehicle, onClose }: BookingModalProps) {
 
   const buildWhatsappMessage = () => {
     const lines = [
-      `Halo Golden Rent, saya mau booking:`,
+      `Halo Sewain, saya mau booking:`,
       ``,
       `*Mobil:* ${vehicle.name} (${vehicle.fuel})`,
       `*Layanan:* ${layananLabel}`,

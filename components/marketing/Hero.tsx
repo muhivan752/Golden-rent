@@ -1,6 +1,7 @@
 import { MessageCircle, ChevronDown } from 'lucide-react';
 import Container from '@/components/shared/Container';
 import Button from '@/components/shared/Button';
+import Logo from '@/components/shared/Logo';
 import { siteConfig } from '@/config/site';
 
 export default function Hero() {
@@ -24,34 +25,22 @@ export default function Hero() {
 
       <Container className="relative z-10 pb-24 pt-20 sm:pb-32 sm:pt-28 lg:pb-40 lg:pt-36">
         <div className="mx-auto max-w-3xl text-center">
-          {/* Logo Badge */}
+          {/* Logo */}
           <div className="mb-8 inline-flex items-center justify-center">
-            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-gold to-yellow-500 shadow-xl shadow-gold/20">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                className="h-10 w-10 text-navy-900"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10l-2.7-3.6A1 1 0 0 0 14.5 6H6.7a1 1 0 0 0-.8.4L3.2 10 1.5 10.1C.7 10.3 0 11.1 0 12v4c0 .6.4 1 1 1h2" />
-                <circle cx="7" cy="17" r="2" />
-                <circle cx="17" cy="17" r="2" />
-              </svg>
-            </div>
+            <Logo className="h-16 text-white sm:h-20" />
           </div>
 
           {/* Heading */}
           <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
             <span className="bg-gradient-to-r from-gold via-yellow-400 to-gold bg-clip-text text-transparent">
-              Golden Rent
+              Sewa Kendaraan,
             </span>
+            <br />
+            <span className="text-white">Semudah Chat</span>
           </h1>
 
           <h2 className="mb-6 text-xl font-medium text-slate-300 sm:text-2xl">
-            Partner Mobilitas Terpercaya Se-Indonesia
+            Platform Rental On-Demand Se-Indonesia
           </h2>
 
           <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">

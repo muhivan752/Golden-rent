@@ -22,7 +22,7 @@ const defaultTestimonials: TestimonialData[] = [
     company: 'PT. Asuransi Askrida Syariah',
     initials: 'BS',
     rating: 5,
-    text: 'Pelayanan sangat profesional, driver ramah dan punctual. Armada yang dikirim selalu bersih dan terawat. Kami sudah menggunakan Golden Rent untuk transport karyawan dan sangat puas!',
+    text: 'Pelayanan sangat profesional, driver ramah dan punctual. Armada yang dikirim selalu bersih dan terawat. Kami sudah menggunakan Sewain untuk transport karyawan dan sangat puas!',
     location: 'Jakarta',
   },
   {
@@ -31,7 +31,7 @@ const defaultTestimonials: TestimonialData[] = [
     company: 'Eventku Indonesia',
     initials: 'SR',
     rating: 5,
-    text: 'Golden Rent sangat membantu kesuksesan event kami. Koordinasi mudah, harga kompetitif, dan yang paling penting: reliable! Pernah butuh tambahan mobil mendadak, mereka langsung siapkan dalam 2 jam.',
+    text: 'Sewain sangat membantu kesuksesan event kami. Koordinasi mudah, harga kompetitif, dan yang paling penting: reliable! Pernah butuh tambahan mobil mendadak, mereka langsung siapkan dalam 2 jam.',
     location: 'Bandung',
   },
   {
@@ -40,7 +40,7 @@ const defaultTestimonials: TestimonialData[] = [
     company: 'CV. Mitra Sejahtera',
     initials: 'AW',
     rating: 5,
-    text: 'Untuk kebutuhan corporate fleet management, Golden Rent adalah pilihan terbaik. Sistem invoicing jelas, customer service responsif, dan armada selalu available.',
+    text: 'Untuk kebutuhan corporate fleet management, Sewain adalah pilihan terbaik. Sistem invoicing jelas, customer service responsif, dan armada selalu available.',
     location: 'Surabaya',
   },
   {
@@ -49,7 +49,7 @@ const defaultTestimonials: TestimonialData[] = [
     company: 'Personal',
     initials: 'LP',
     rating: 5,
-    text: 'Saya sering rental mobil untuk trip ke luar kota. Golden Rent selalu jadi pilihan utama karena proses booking yang gampang via WhatsApp, driver yang familiar dengan rute wisata, dan harga yang fair.',
+    text: 'Saya sering rental mobil untuk trip ke luar kota. Sewain selalu jadi pilihan utama karena proses booking yang gampang via WhatsApp, driver yang familiar dengan rute wisata, dan harga yang fair.',
     location: 'Yogyakarta',
   },
   {
@@ -58,7 +58,7 @@ const defaultTestimonials: TestimonialData[] = [
     company: 'PT. Konstruksi Prima',
     initials: 'RH',
     rating: 5,
-    text: 'Project kami sering butuh mobil untuk survey site di berbagai kota. Golden Rent coverage-nya luas dan service konsisten di setiap kota. One vendor, multiple cities — sangat memudahkan.',
+    text: 'Project kami sering butuh mobil untuk survey site di berbagai kota. Sewain coverage-nya luas dan service konsisten di setiap kota. One vendor, multiple cities — sangat memudahkan.',
     location: 'Medan',
   },
 ];

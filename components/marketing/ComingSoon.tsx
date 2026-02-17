@@ -51,7 +51,7 @@ export default function ComingSoon() {
             Rental <span className="bg-gradient-to-r from-gold-600 via-gold to-yellow-500 bg-clip-text text-transparent">Motor</span> Segera Hadir
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-slate-600">
-            Golden Rent akan segera memperluas layanan ke rental motor. Solusi transportasi roda dua yang praktis dan terjangkau.
+            Sewain akan segera memperluas layanan ke rental motor. Solusi transportasi roda dua yang praktis dan terjangkau.
           </p>
         </div>
 

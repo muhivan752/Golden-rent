@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: 'Golden Rent',
+  name: 'Sewain',
   description:
-    'Solusi rental kendaraan terpercaya se-Indonesia. 100+ armada, driver profesional, harga transparan. Tersedia di 10+ kota untuk kebutuhan personal dan corporate.',
-  url: 'https://goldenrent.vercel.app',
+    'Platform rental kendaraan on-demand se-Indonesia. Armada lengkap, driver profesional, harga transparan. Tersedia di 10+ kota untuk kebutuhan personal dan corporate.',
+  url: 'https://sewain.vercel.app',
   ogImage: '/og-image.png',
   keywords: [
     'rental mobil indonesia',
@@ -13,7 +13,8 @@ export const siteConfig = {
     'corporate fleet management',
     'rental mobil dengan driver',
     'sewa mobil bulanan',
-    'golden rent',
+    'sewain',
+    'platform rental mobil',
   ],
   author: 'PT. Solusi Rental Indonesia',
   contacts: {

@@ -58,11 +58,11 @@ export default function AdminDashboardLayout({ children }: { children: React.Rea
         <div className="flex h-full flex-col">
           {/* Logo */}
           <div className="flex items-center gap-3 border-b border-slate-800 px-6 py-5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-yellow-400 to-yellow-600 text-sm font-bold text-slate-900">
-              G
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 text-sm font-bold text-white">
+              S
             </div>
             <div>
-              <p className="text-sm font-bold text-white">Golden Rent</p>
+              <p className="text-sm font-bold text-white">Sewain</p>
               <p className="text-xs text-slate-500">Admin Panel</p>
             </div>
             <button onClick={() => setSidebarOpen(false)} className="ml-auto text-slate-400 lg:hidden">

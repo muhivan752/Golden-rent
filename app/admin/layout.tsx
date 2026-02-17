@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Admin Panel — Golden Rent',
+  title: 'Admin Panel — Sewain',
   robots: { index: false, follow: false },
 };
 

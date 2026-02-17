@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'Golden Rent - Partner Mobilitas Terpercaya Se-Indonesia';
+export const alt = 'Sewain - Platform Rental Kendaraan On-Demand Se-Indonesia';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -20,7 +20,7 @@ export default function OgImage() {
           fontFamily: 'sans-serif',
         }}
       >
-        {/* Gold accent line */}
+        {/* Accent line */}
         <div
           style={{
             position: 'absolute',
@@ -28,7 +28,7 @@ export default function OgImage() {
             left: 0,
             right: 0,
             height: 6,
-            background: 'linear-gradient(90deg, #D4A843, #F0C75E, #D4A843)',
+            background: 'linear-gradient(90deg, #6366f1, #8b5cf6, #6366f1)',
           }}
         />
 
@@ -44,13 +44,13 @@ export default function OgImage() {
           {/* Logo text */}
           <div
             style={{
-              fontSize: 72,
+              fontSize: 80,
               fontWeight: 800,
-              color: '#F0C75E',
+              color: '#ffffff',
               letterSpacing: '-2px',
             }}
           >
-            GOLDEN RENT
+            Sewain
           </div>
 
           {/* Tagline */}
@@ -62,7 +62,7 @@ export default function OgImage() {
               textTransform: 'uppercase',
             }}
           >
-            Partner Mobilitas Terpercaya
+            Platform Rental On-Demand
           </div>
 
           {/* Divider */}
@@ -70,7 +70,7 @@ export default function OgImage() {
             style={{
               width: 80,
               height: 3,
-              background: '#D4A843',
+              background: '#8b5cf6',
               borderRadius: 4,
               marginTop: 8,
               marginBottom: 8,
@@ -86,10 +86,10 @@ export default function OgImage() {
               color: '#cbd5e1',
             }}
           >
-            <span>20+ Kota</span>
-            <span style={{ color: '#D4A843' }}>•</span>
+            <span>10+ Kota</span>
+            <span style={{ color: '#8b5cf6' }}>•</span>
             <span>Armada Modern</span>
-            <span style={{ color: '#D4A843' }}>•</span>
+            <span style={{ color: '#8b5cf6' }}>•</span>
             <span>Driver Profesional</span>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function OgImage() {
             color: '#64748b',
           }}
         >
-          goldenrent.vercel.app
+          sewain.vercel.app
         </div>
       </div>
     ),

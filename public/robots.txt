@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://goldenrent.vercel.app/sitemap.xml
+Sitemap: https://sewain.vercel.app/sitemap.xml

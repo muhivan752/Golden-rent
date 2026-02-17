@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
 import Container from './Container';
+import Logo from './Logo';
 import { siteConfig } from '@/config/site';
 
 export default function Footer() {
@@ -11,17 +12,12 @@ export default function Footer() {
         <div className="grid gap-10 py-16 md:grid-cols-3">
           {/* Info Perusahaan */}
           <div>
-            <div className="mb-4 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gold text-navy-900 font-bold text-lg">
-                G
-              </div>
-              <div>
-                <p className="font-bold text-white text-lg">Golden Rent</p>
-                <p className="text-sm text-slate-400">PT. Solusi Rental Indonesia</p>
-              </div>
+            <div className="mb-4">
+              <Logo className="h-8 text-white" />
+              <p className="mt-2 text-sm text-slate-400">PT. Solusi Rental Indonesia</p>
             </div>
             <p className="text-sm leading-relaxed text-slate-400">
-              Partner mobilitas terpercaya se-Indonesia. Menyediakan layanan rental kendaraan
+              Platform rental kendaraan on-demand se-Indonesia. Menyediakan layanan rental
               untuk kebutuhan personal dan corporate.
             </p>
           </div>
@@ -116,7 +112,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-slate-800 py-6 text-center text-sm text-slate-500">
-          &copy; {currentYear} Golden Rent &mdash; PT. Solusi Rental Indonesia. All rights reserved.
+          &copy; {currentYear} Sewain &mdash; PT. Solusi Rental Indonesia. All rights reserved.
         </div>
       </Container>
     </footer>
