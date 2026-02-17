@@ -1,0 +1,32 @@
+<svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="400" rx="80" fill="url(#bg-grad)"/>
+
+  <!-- Stylized "G" with road/motion -->
+  <path
+    d="M248 200h-48"
+    stroke="white"
+    stroke-width="24"
+    stroke-linecap="round"
+  />
+  <path
+    d="M248 200a68 68 0 1 0-34 58.8"
+    stroke="white"
+    stroke-width="24"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+
+  <!-- Speed lines -->
+  <line x1="80" y1="160" x2="120" y2="160" stroke="white" stroke-width="12" stroke-linecap="round" opacity="0.4"/>
+  <line x1="68" y1="200" x2="108" y2="200" stroke="white" stroke-width="12" stroke-linecap="round" opacity="0.4"/>
+  <line x1="80" y1="240" x2="120" y2="240" stroke="white" stroke-width="12" stroke-linecap="round" opacity="0.4"/>
+
+  <defs>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10b981"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+</svg>
