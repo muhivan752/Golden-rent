@@ -73,6 +73,10 @@ export default function AdminFleetPage() {
     setUploading(false);
   };
 
+  const revalidateSite = async () => {
+    try { await fetch('/api/revalidate', { method: 'POST' }); } catch { /* ignore */ }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
@@ -88,6 +92,7 @@ export default function AdminFleetPage() {
     setEditId(null);
     setForm(emptyForm);
     fetchItems();
+    revalidateSite();
   };
 
   const handleEdit = (item: DbFleetItem) => {
@@ -111,6 +116,7 @@ export default function AdminFleetPage() {
     if (!confirm('Yakin hapus armada ini?')) return;
     await supabase.from('fleet').delete().eq('id', id);
     fetchItems();
+    revalidateSite();
   };
 
   const closeForm = () => {

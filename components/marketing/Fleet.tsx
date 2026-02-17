@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import Image from 'next/image';
 import { MessageCircle, Fuel, Zap, Droplets, Leaf, Users, Calendar, Settings2, KeyRound, UserCheck, Route } from 'lucide-react';
 import Container from '@/components/shared/Container';
 import BookingModal from '@/components/marketing/BookingModal';
-import { fleet, fuelFilters } from '@/lib/constants';
+import { fleet } from '@/lib/constants';
 import type { FleetItem, FuelType } from '@/lib/types';
 
 const fuelIcons: Record<FuelType, typeof Fuel> = {
@@ -34,14 +34,30 @@ interface FleetProps {
 }
 
 export default function Fleet({ data }: FleetProps) {
-  const fleetData = data && data.length > 0 ? data : fleet;
-  const [activeFilter, setActiveFilter] = useState<FuelType | 'Semua'>('Semua');
+  // Only fallback to hardcoded data if Supabase is not configured (data is undefined)
+  // If data is empty array, it means all cars were deleted from admin — show nothing
+  const fleetData = data !== undefined ? data : fleet;
+  const [activeCategory, setActiveCategory] = useState<string>('Semua');
+  const [activeFuel, setActiveFuel] = useState<FuelType | 'Semua'>('Semua');
   const [selectedVehicle, setSelectedVehicle] = useState<FleetItem | null>(null);
 
-  const filtered =
-    activeFilter === 'Semua'
-      ? fleetData
-      : fleetData.filter((v) => v.fuel === activeFilter);
+  // Build dynamic category filters from actual data
+  const categoryFilters = useMemo(() => {
+    const categories = Array.from(new Set(fleetData.map((v) => v.category)));
+    return ['Semua', ...categories];
+  }, [fleetData]);
+
+  // Build dynamic fuel filters from actual data
+  const fuelFilterOptions = useMemo(() => {
+    const fuels = Array.from(new Set(fleetData.map((v) => v.fuel)));
+    return ['Semua' as const, ...fuels];
+  }, [fleetData]);
+
+  const filtered = fleetData.filter((v) => {
+    const matchCategory = activeCategory === 'Semua' || v.category === activeCategory;
+    const matchFuel = activeFuel === 'Semua' || v.fuel === activeFuel;
+    return matchCategory && matchFuel;
+  });
 
   return (
     <section id="fleet" className="bg-slate-50 py-20 sm:py-28">
@@ -71,19 +87,36 @@ export default function Fleet({ data }: FleetProps) {
           </div>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="mb-10 flex flex-wrap justify-center gap-2">
-          {fuelFilters.map((filter) => (
+        {/* Category Filter */}
+        <div className="mb-4 flex flex-wrap justify-center gap-2">
+          {categoryFilters.map((cat) => (
             <button
-              key={filter.value}
-              onClick={() => setActiveFilter(filter.value)}
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
               className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-200 ${
-                activeFilter === filter.value
+                activeCategory === cat
                   ? 'bg-gold text-white shadow-md shadow-gold/25'
                   : 'bg-white text-slate-600 ring-1 ring-slate-200 hover:bg-slate-100'
               }`}
             >
-              {filter.label}
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Fuel Filter */}
+        <div className="mb-10 flex flex-wrap justify-center gap-2">
+          {fuelFilterOptions.map((fuel) => (
+            <button
+              key={fuel}
+              onClick={() => setActiveFuel(fuel)}
+              className={`rounded-full px-4 py-1.5 text-xs font-medium transition-all duration-200 ${
+                activeFuel === fuel
+                  ? 'bg-slate-800 text-white'
+                  : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+              }`}
+            >
+              {fuel}
             </button>
           ))}
         </div>
