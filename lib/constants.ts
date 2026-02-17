@@ -1,4 +1,4 @@
-import type { FleetItem, FuelType, ServiceItem, WhyUsItem } from './types';
+import type { FleetItem, FuelType, ServiceItem, WhyUsItem, TransferType, TransferRoute } from './types';
 
 export const fuelFilters: { label: string; value: FuelType | 'Semua' }[] = [
   { label: 'Semua', value: 'Semua' },
@@ -186,6 +186,68 @@ export const whyUs: WhyUsItem[] = [
     title: 'Customer Support',
     description:
       'Tim support responsif dan siap membantu Anda.',
+  },
+];
+
+export const transferTypeFilters: { label: string; value: TransferType | 'Semua' }[] = [
+  { label: 'Semua', value: 'Semua' },
+  { label: 'Bandara', value: 'Bandara' },
+  { label: 'Stasiun', value: 'Stasiun' },
+  { label: 'Pelabuhan', value: 'Pelabuhan' },
+  { label: 'Terminal', value: 'Terminal' },
+];
+
+export const defaultTransferVehicles = [
+  { vehicle_name: 'Avanza / Xenia', seats: 6 },
+  { vehicle_name: 'Innova Reborn', seats: 6 },
+  { vehicle_name: 'Alphard / Vellfire', seats: 6 },
+  { vehicle_name: 'HiAce Premio', seats: 14 },
+];
+
+export const defaultTransferIncludes = ['Toll', 'Parkir', 'Driver', 'BBM'];
+
+export const transferRoutes: TransferRoute[] = [
+  {
+    id: 'kno-medan',
+    type: 'Bandara',
+    origin: 'Bandara Kualanamu (KNO)',
+    origin_code: 'KNO',
+    destination: 'Kota Medan',
+    estimation: '~45 min',
+    vehicles: [
+      { vehicle_name: 'Avanza / Xenia', seats: 6, price: '' },
+      { vehicle_name: 'Innova Reborn', seats: 6, price: '' },
+      { vehicle_name: 'HiAce Premio', seats: 14, price: '' },
+    ],
+    includes: ['Toll', 'Parkir', 'Driver', 'BBM'],
+  },
+  {
+    id: 'kno-parapat',
+    type: 'Bandara',
+    origin: 'Bandara Kualanamu (KNO)',
+    origin_code: 'KNO',
+    destination: 'Parapat (Danau Toba)',
+    estimation: '~4 jam',
+    vehicles: [
+      { vehicle_name: 'Avanza / Xenia', seats: 6, price: '' },
+      { vehicle_name: 'Innova Reborn', seats: 6, price: '' },
+      { vehicle_name: 'HiAce Premio', seats: 14, price: '' },
+    ],
+    includes: ['Toll', 'Parkir', 'Driver', 'BBM'],
+  },
+  {
+    id: 'kno-pematangsiantar',
+    type: 'Bandara',
+    origin: 'Bandara Kualanamu (KNO)',
+    origin_code: 'KNO',
+    destination: 'Pematang Siantar',
+    estimation: '~3 jam',
+    vehicles: [
+      { vehicle_name: 'Avanza / Xenia', seats: 6, price: '' },
+      { vehicle_name: 'Innova Reborn', seats: 6, price: '' },
+      { vehicle_name: 'HiAce Premio', seats: 14, price: '' },
+    ],
+    includes: ['Toll', 'Parkir', 'Driver', 'BBM'],
   },
 ];
 

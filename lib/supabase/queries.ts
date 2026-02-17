@@ -1,4 +1,4 @@
-import type { DbFleetItem, DbTestimonial, DbFAQ } from './types';
+import type { DbFleetItem, DbTestimonial, DbFAQ, DbTransferRoute } from './types';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -52,4 +52,8 @@ export async function getTestimonials(): Promise<DbTestimonial[] | null> {
 
 export async function getFAQs(): Promise<DbFAQ[] | null> {
   return fetchTable<DbFAQ>('faqs', 'select=*&is_visible=eq.true&order=sort_order.asc');
+}
+
+export async function getTransferRoutes(): Promise<DbTransferRoute[] | null> {
+  return fetchTable<DbTransferRoute>('transfer_routes', 'select=*&is_active=eq.true&order=sort_order.asc');
 }

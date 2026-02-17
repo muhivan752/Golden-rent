@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard,
   Car,
+  MapPin,
   MessageSquareQuote,
   HelpCircle,
   LogOut,
@@ -18,6 +19,7 @@ import { createClient } from '@/lib/supabase/client';
 const navItems = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/admin/fleet', label: 'Armada', icon: Car },
+  { href: '/admin/transfer', label: 'Transfer', icon: MapPin },
   { href: '/admin/testimonials', label: 'Testimonial', icon: MessageSquareQuote },
   { href: '/admin/faq', label: 'FAQ', icon: HelpCircle },
 ];

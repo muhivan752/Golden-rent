@@ -35,3 +35,25 @@ export interface DbFAQ {
   sort_order: number;
   created_at: string;
 }
+
+export type TransferType = 'Bandara' | 'Stasiun' | 'Pelabuhan' | 'Terminal';
+
+export interface DbTransferVehicle {
+  vehicle_name: string;
+  seats: number;
+  price: string;
+}
+
+export interface DbTransferRoute {
+  id: string;
+  type: TransferType;
+  origin: string;
+  origin_code: string;
+  destination: string;
+  estimation: string;
+  vehicles: DbTransferVehicle[];
+  includes: string[];
+  is_active: boolean;
+  sort_order: number;
+  created_at: string;
+}

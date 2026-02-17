@@ -1,5 +1,6 @@
 import Hero from '@/components/marketing/Hero';
 import Services from '@/components/marketing/Services';
+import Transfer from '@/components/marketing/Transfer';
 import HowItWorks from '@/components/marketing/HowItWorks';
 import Fleet from '@/components/marketing/Fleet';
 import WhyUs from '@/components/marketing/WhyUs';
@@ -11,15 +12,16 @@ import ComingSoon from '@/components/marketing/ComingSoon';
 import FAQ from '@/components/marketing/FAQ';
 import CTA from '@/components/marketing/CTA';
 import { siteConfig } from '@/config/site';
-import { getFleet, getTestimonials, getFAQs } from '@/lib/supabase/queries';
-import type { FleetItem } from '@/lib/types';
+import { getFleet, getTestimonials, getFAQs, getTransferRoutes } from '@/lib/supabase/queries';
+import type { FleetItem, TransferRoute } from '@/lib/types';
 
 export default async function HomePage() {
   // Fetch data from Supabase (returns null if not configured — uses defaults)
-  const [dbFleet, dbTestimonials, dbFaqs] = await Promise.all([
+  const [dbFleet, dbTestimonials, dbFaqs, dbTransferRoutes] = await Promise.all([
     getFleet(),
     getTestimonials(),
     getFAQs(),
+    getTransferRoutes(),
   ]);
 
   // Map Supabase fleet data to FleetItem format
@@ -50,6 +52,18 @@ export default async function HomePage() {
   const faqData = dbFaqs?.map((item) => ({
     question: item.question,
     answer: item.answer,
+  }));
+
+  // Map transfer routes
+  const transferData: TransferRoute[] | undefined = dbTransferRoutes?.map((item) => ({
+    id: item.id,
+    type: item.type,
+    origin: item.origin,
+    origin_code: item.origin_code,
+    destination: item.destination,
+    estimation: item.estimation,
+    vehicles: item.vehicles,
+    includes: item.includes,
   }));
 
   return (
@@ -85,6 +99,7 @@ export default async function HomePage() {
 
       <Hero />
       <Services />
+      <Transfer data={transferData} />
       <HowItWorks />
       <Fleet data={fleetData} />
       <WhyUs />

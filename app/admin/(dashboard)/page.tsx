@@ -2,31 +2,34 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Car, MessageSquareQuote, HelpCircle, ExternalLink } from 'lucide-react';
+import { Car, MapPin, MessageSquareQuote, HelpCircle, ExternalLink } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 
 interface Counts {
   fleet: number;
+  transfer: number;
   testimonials: number;
   faqs: number;
 }
 
 export default function AdminDashboardPage() {
-  const [counts, setCounts] = useState<Counts>({ fleet: 0, testimonials: 0, faqs: 0 });
+  const [counts, setCounts] = useState<Counts>({ fleet: 0, transfer: 0, testimonials: 0, faqs: 0 });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchCounts() {
       const supabase = createClient();
 
-      const [fleet, testimonials, faqs] = await Promise.all([
+      const [fleet, transfer, testimonials, faqs] = await Promise.all([
         supabase.from('fleet').select('id', { count: 'exact', head: true }),
+        supabase.from('transfer_routes').select('id', { count: 'exact', head: true }),
         supabase.from('testimonials').select('id', { count: 'exact', head: true }),
         supabase.from('faqs').select('id', { count: 'exact', head: true }),
       ]);
 
       setCounts({
         fleet: fleet.count ?? 0,
+        transfer: transfer.count ?? 0,
         testimonials: testimonials.count ?? 0,
         faqs: faqs.count ?? 0,
       });
@@ -43,6 +46,13 @@ export default function AdminDashboardPage() {
       icon: Car,
       href: '/admin/fleet',
       color: 'bg-blue-50 text-blue-600',
+    },
+    {
+      label: 'Transfer',
+      count: counts.transfer,
+      icon: MapPin,
+      href: '/admin/transfer',
+      color: 'bg-amber-50 text-amber-600',
     },
     {
       label: 'Testimonial',
@@ -66,8 +76,8 @@ export default function AdminDashboardPage() {
       <div className="mb-8 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 p-6 text-white sm:p-8">
         <h2 className="text-xl font-bold sm:text-2xl">Selamat Datang di Admin Panel</h2>
         <p className="mt-2 text-sm text-slate-300">
-          Kelola armada, testimonial, dan FAQ langsung dari sini. Semua perubahan akan tampil di
-          website secara real-time.
+          Kelola armada, transfer, testimonial, dan FAQ langsung dari sini. Semua perubahan akan tampil
+          di website secara real-time.
         </p>
         <a
           href="/"
@@ -81,7 +91,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid gap-4 sm:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((card) => (
           <Link
             key={card.label}
