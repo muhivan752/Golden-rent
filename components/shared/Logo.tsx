@@ -1,32 +1,36 @@
 export default function Logo({ className = 'h-8' }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 160 40"
+      viewBox="0 0 180 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      {/* Icon - stylized "S" road/path */}
-      <rect width="36" height="36" x="2" y="2" rx="10" fill="url(#sewain-grad)" />
+      {/* Icon - stylized "G" with motion */}
+      <rect width="36" height="36" x="2" y="2" rx="10" fill="url(#gorent-grad)" />
       <path
-        d="M13 14c0-2 1.5-3 3.5-3h5c2.5 0 4.5 2 4.5 4.5S24 20 21.5 20h-5C14 20 12 22 12 24.5S14 29 16.5 29h5c2 0 3.5-1 3.5-3"
+        d="M25 20h-5m5 0a7 7 0 1 0-3.5 6.06"
         stroke="white"
         strokeWidth="2.5"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      {/* Car icon hint */}
-      <circle cx="16" cy="26" r="1.2" fill="white" opacity="0.7" />
-      <circle cx="23" cy="26" r="1.2" fill="white" opacity="0.7" />
+      {/* Speed lines */}
+      <line x1="10" y1="15" x2="14" y2="15" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+      <line x1="9" y1="20" x2="13" y2="20" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
 
-      {/* Text */}
+      {/* Text: "Go" bold + "Rent" regular */}
       <text x="46" y="28" fontFamily="Inter, system-ui, sans-serif" fontWeight="800" fontSize="26" fill="currentColor">
-        Sewain
+        Go
+      </text>
+      <text x="82" y="28" fontFamily="Inter, system-ui, sans-serif" fontWeight="500" fontSize="26" fill="currentColor">
+        Rent
       </text>
 
       <defs>
-        <linearGradient id="sewain-grad" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#6366f1" />
-          <stop offset="1" stopColor="#8b5cf6" />
+        <linearGradient id="gorent-grad" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#10b981" />
+          <stop offset="1" stopColor="#059669" />
         </linearGradient>
       </defs>
     </svg>

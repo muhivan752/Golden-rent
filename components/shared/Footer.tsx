@@ -112,7 +112,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-slate-800 py-6 text-center text-sm text-slate-500">
-          &copy; {currentYear} Sewain &mdash; PT. Solusi Rental Indonesia. All rights reserved.
+          &copy; {currentYear} GoRent &mdash; PT. Solusi Rental Indonesia. All rights reserved.
         </div>
       </Container>
     </footer>

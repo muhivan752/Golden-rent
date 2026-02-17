@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'Sewain - Platform Rental Kendaraan On-Demand Se-Indonesia';
+export const alt = 'GoRent - Platform Rental Kendaraan On-Demand Se-Indonesia';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -28,7 +28,7 @@ export default function OgImage() {
             left: 0,
             right: 0,
             height: 6,
-            background: 'linear-gradient(90deg, #6366f1, #8b5cf6, #6366f1)',
+            background: 'linear-gradient(90deg, #10b981, #059669, #10b981)',
           }}
         />
 
@@ -44,13 +44,13 @@ export default function OgImage() {
           {/* Logo text */}
           <div
             style={{
+              display: 'flex',
               fontSize: 80,
-              fontWeight: 800,
-              color: '#ffffff',
               letterSpacing: '-2px',
             }}
           >
-            Sewain
+            <span style={{ fontWeight: 800, color: '#10b981' }}>Go</span>
+            <span style={{ fontWeight: 500, color: '#ffffff' }}>Rent</span>
           </div>
 
           {/* Tagline */}
@@ -70,7 +70,7 @@ export default function OgImage() {
             style={{
               width: 80,
               height: 3,
-              background: '#8b5cf6',
+              background: '#10b981',
               borderRadius: 4,
               marginTop: 8,
               marginBottom: 8,
@@ -87,9 +87,9 @@ export default function OgImage() {
             }}
           >
             <span>10+ Kota</span>
-            <span style={{ color: '#8b5cf6' }}>•</span>
+            <span style={{ color: '#10b981' }}>•</span>
             <span>Armada Modern</span>
-            <span style={{ color: '#8b5cf6' }}>•</span>
+            <span style={{ color: '#10b981' }}>•</span>
             <span>Driver Profesional</span>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function OgImage() {
             color: '#64748b',
           }}
         >
-          sewain.vercel.app
+          gorent.id
         </div>
       </div>
     ),

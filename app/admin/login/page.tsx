@@ -56,11 +56,11 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 text-2xl font-bold text-white">
-            S
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-emerald-700 text-2xl font-bold text-white">
+            G
           </div>
           <h1 className="text-2xl font-bold text-slate-900">Admin Panel</h1>
-          <p className="mt-1 text-sm text-slate-500">Sewain — PT. Solusi Rental Indonesia</p>
+          <p className="mt-1 text-sm text-slate-500">GoRent — PT. Solusi Rental Indonesia</p>
         </div>
 
         {/* Form */}
@@ -83,7 +83,7 @@ export default function AdminLoginPage() {
               required
               disabled={loading}
               className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-900 outline-none transition-colors focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 disabled:opacity-50"
-              placeholder="admin@sewain.id"
+              placeholder="admin@gorent.id"
             />
           </div>
 

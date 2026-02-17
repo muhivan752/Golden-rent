@@ -1,5 +1,5 @@
 -- ═══════════════════════════════════════════════════════════════
--- Sewain — Supabase Database Migration
+-- GoRent — Supabase Database Migration
 -- ═══════════════════════════════════════════════════════════════
 -- Jalankan SQL ini di Supabase Dashboard → SQL Editor
 -- https://supabase.com/dashboard/project/YOUR_PROJECT/sql
@@ -116,8 +116,8 @@ INSERT INTO faqs (question, answer, sort_order) VALUES
 
 -- Data awal testimonials
 INSERT INTO testimonials (name, role, company, initials, rating, text, location, sort_order) VALUES
-  ('Budi Santoso', 'HR Manager', 'PT. Asuransi Askrida Syariah', 'BS', 5, 'Pelayanan sangat profesional, driver ramah dan punctual. Armada yang dikirim selalu bersih dan terawat. Kami sudah menggunakan Sewain untuk transport karyawan dan sangat puas!', 'Jakarta', 1),
-  ('Siti Rahma', 'Event Organizer', 'Eventku Indonesia', 'SR', 5, 'Sewain sangat membantu kesuksesan event kami. Koordinasi mudah, harga kompetitif, dan yang paling penting: reliable! Pernah butuh tambahan mobil mendadak, mereka langsung siapkan dalam 2 jam.', 'Bandung', 2),
-  ('Andi Wijaya', 'Direktur', 'CV. Mitra Sejahtera', 'AW', 5, 'Untuk kebutuhan corporate fleet management, Sewain adalah pilihan terbaik. Sistem invoicing jelas, customer service responsif, dan armada selalu available.', 'Surabaya', 3),
-  ('Lisa Permata', 'Travel Blogger', 'Personal', 'LP', 5, 'Saya sering rental mobil untuk trip ke luar kota. Sewain selalu jadi pilihan utama karena proses booking yang gampang via WhatsApp, driver yang familiar dengan rute wisata, dan harga yang fair.', 'Yogyakarta', 4),
-  ('Rudi Hermawan', 'Project Manager', 'PT. Konstruksi Prima', 'RH', 5, 'Project kami sering butuh mobil untuk survey site di berbagai kota. Sewain coverage-nya luas dan service konsisten di setiap kota. One vendor, multiple cities — sangat memudahkan.', 'Medan', 5);
+  ('Budi Santoso', 'HR Manager', 'PT. Asuransi Askrida Syariah', 'BS', 5, 'Pelayanan sangat profesional, driver ramah dan punctual. Armada yang dikirim selalu bersih dan terawat. Kami sudah menggunakan GoRent untuk transport karyawan dan sangat puas!', 'Jakarta', 1),
+  ('Siti Rahma', 'Event Organizer', 'Eventku Indonesia', 'SR', 5, 'GoRent sangat membantu kesuksesan event kami. Koordinasi mudah, harga kompetitif, dan yang paling penting: reliable! Pernah butuh tambahan mobil mendadak, mereka langsung siapkan dalam 2 jam.', 'Bandung', 2),
+  ('Andi Wijaya', 'Direktur', 'CV. Mitra Sejahtera', 'AW', 5, 'Untuk kebutuhan corporate fleet management, GoRent adalah pilihan terbaik. Sistem invoicing jelas, customer service responsif, dan armada selalu available.', 'Surabaya', 3),
+  ('Lisa Permata', 'Travel Blogger', 'Personal', 'LP', 5, 'Saya sering rental mobil untuk trip ke luar kota. GoRent selalu jadi pilihan utama karena proses booking yang gampang via WhatsApp, driver yang familiar dengan rute wisata, dan harga yang fair.', 'Yogyakarta', 4),
+  ('Rudi Hermawan', 'Project Manager', 'PT. Konstruksi Prima', 'RH', 5, 'Project kami sering butuh mobil untuk survey site di berbagai kota. GoRent coverage-nya luas dan service konsisten di setiap kota. One vendor, multiple cities — sangat memudahkan.', 'Medan', 5);

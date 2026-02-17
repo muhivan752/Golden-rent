@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: 'Sewain',
+  name: 'GoRent',
   description:
     'Platform rental kendaraan on-demand se-Indonesia. Armada lengkap, driver profesional, harga transparan. Tersedia di 10+ kota untuk kebutuhan personal dan corporate.',
-  url: 'https://sewain.vercel.app',
+  url: 'https://gorent.vercel.app',
   ogImage: '/og-image.png',
   keywords: [
     'rental mobil indonesia',
@@ -13,7 +13,7 @@ export const siteConfig = {
     'corporate fleet management',
     'rental mobil dengan driver',
     'sewa mobil bulanan',
-    'sewain',
+    'gorent',
     'platform rental mobil',
   ],
   author: 'PT. Solusi Rental Indonesia',

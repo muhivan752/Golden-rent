@@ -25,7 +25,7 @@ export default function About() {
               </span>
             </h2>
             <p className="mb-4 text-base leading-relaxed text-slate-600">
-              Sewain adalah platform rental kendaraan on-demand di bawah naungan PT. Solusi Rental Indonesia.
+              GoRent adalah platform rental kendaraan on-demand di bawah naungan PT. Solusi Rental Indonesia.
               Berdiri sejak 2024, kami hadir untuk menjawab kebutuhan transportasi yang andal, profesional,
               dan terjangkau di seluruh Indonesia.
             </p>

@@ -15,7 +15,7 @@ export default function WhyUs() {
       <Container>
         <div className="mb-14 text-center">
           <h2 className="mb-4 text-3xl font-bold text-slate-900 sm:text-4xl">
-            Mengapa Sewain?
+            Mengapa GoRent?
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-slate-600">
             Komitmen kami untuk memberikan layanan terbaik bagi setiap pelanggan
