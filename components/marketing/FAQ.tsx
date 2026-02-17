@@ -28,7 +28,7 @@ const defaultFaqs: FAQData[] = [
   {
     question: 'Bagaimana cara melakukan booking?',
     answer:
-      'Sangat mudah! Hubungi kami via WhatsApp di +62 813-7011-6181, pilih armada dan tanggal yang Anda inginkan, lalu kami akan mengirimkan detail dan konfirmasi pembayaran.',
+      'Sangat mudah! Hubungi kami via WhatsApp di +62 813-7044-6181, pilih armada dan tanggal yang Anda inginkan, lalu kami akan mengirimkan detail dan konfirmasi pembayaran.',
   },
   {
     question: 'Apa yang terjadi jika mobil rusak saat rental?',

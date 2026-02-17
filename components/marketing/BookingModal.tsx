@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { X, MessageCircle, MapPin, Calendar, Car, User, Phone } from 'lucide-react';
+import { X, MessageCircle, MapPin, Calendar, Car, User, Phone, Wallet } from 'lucide-react';
 import type { FleetItem } from '@/lib/types';
 import { siteConfig } from '@/config/site';
 
@@ -43,7 +43,9 @@ export default function BookingModal({ vehicle, onClose }: BookingModalProps) {
     durasi: 'harian',
     tanggalMulai: '',
     tanggalSelesai: '',
-    rute: '',
+    lokasiJemput: '',
+    lokasiTujuan: '',
+    pembayaran: 'dp-25',
     catatan: '',
   });
 
@@ -60,6 +62,8 @@ export default function BookingModal({ vehicle, onClose }: BookingModalProps) {
   const durasiLabel =
     durasiOptions.find((d) => d.id === form.durasi)?.label ?? form.durasi;
 
+  const pembayaranLabel = form.pembayaran === 'dp-25' ? 'DP 25% di awal' : 'Bayar Penuh (100%)';
+
   const buildWhatsappMessage = () => {
     const lines = [
       `Halo Golden Rent, saya mau booking:`,
@@ -69,7 +73,9 @@ export default function BookingModal({ vehicle, onClose }: BookingModalProps) {
       `*Durasi:* ${durasiLabel}`,
       form.tanggalMulai && `*Mulai:* ${form.tanggalMulai}`,
       form.tanggalSelesai && `*Selesai:* ${form.tanggalSelesai}`,
-      form.rute && `*Rute/Tujuan:* ${form.rute}`,
+      form.lokasiJemput && `*Lokasi Penjemputan:* ${form.lokasiJemput}`,
+      form.lokasiTujuan && `*Lokasi Tujuan:* ${form.lokasiTujuan}`,
+      `*Pembayaran:* ${pembayaranLabel}`,
       ``,
       `*Nama:* ${form.nama}`,
       form.noHp && `*No. HP:* ${form.noHp}`,
@@ -240,20 +246,88 @@ export default function BookingModal({ vehicle, onClose }: BookingModalProps) {
             </div>
           </div>
 
-          {/* Rute */}
+          {/* Lokasi Penjemputan & Tujuan */}
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label className={labelClass}>
+                <MapPin className="h-3.5 w-3.5 text-gold" />
+                Lokasi Penjemputan *
+              </label>
+              <input
+                type="text"
+                name="lokasiJemput"
+                required
+                placeholder="Contoh: Bandara Kualanamu"
+                value={form.lokasiJemput}
+                onChange={handleChange}
+                className={inputClass}
+              />
+            </div>
+            <div>
+              <label className={labelClass}>
+                <MapPin className="h-3.5 w-3.5 text-gold" />
+                Lokasi Tujuan *
+              </label>
+              <input
+                type="text"
+                name="lokasiTujuan"
+                required
+                placeholder="Contoh: Hotel Danau Toba"
+                value={form.lokasiTujuan}
+                onChange={handleChange}
+                className={inputClass}
+              />
+            </div>
+          </div>
+
+          {/* Pembayaran */}
           <div>
             <label className={labelClass}>
-              <MapPin className="h-3.5 w-3.5 text-gold" />
-              Rute / Tujuan
+              <Wallet className="h-3.5 w-3.5 text-gold" />
+              Metode Pembayaran *
             </label>
-            <input
-              type="text"
-              name="rute"
-              placeholder="Contoh: Medan → Parapat → Berastagi"
-              value={form.rute}
-              onChange={handleChange}
-              className={inputClass}
-            />
+            <div className="grid gap-2 sm:grid-cols-2">
+              <label
+                className={`flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition-colors ${
+                  form.pembayaran === 'dp-25'
+                    ? 'border-gold bg-gold/5 ring-1 ring-gold/20'
+                    : 'border-slate-200 hover:border-slate-300'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="pembayaran"
+                  value="dp-25"
+                  checked={form.pembayaran === 'dp-25'}
+                  onChange={handleChange}
+                  className="accent-gold"
+                />
+                <div>
+                  <span className="text-sm font-medium text-slate-900">DP 25%</span>
+                  <p className="text-xs text-slate-500">Bayar 25% di awal, sisa saat penjemputan</p>
+                </div>
+              </label>
+              <label
+                className={`flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition-colors ${
+                  form.pembayaran === 'full'
+                    ? 'border-gold bg-gold/5 ring-1 ring-gold/20'
+                    : 'border-slate-200 hover:border-slate-300'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="pembayaran"
+                  value="full"
+                  checked={form.pembayaran === 'full'}
+                  onChange={handleChange}
+                  className="accent-gold"
+                />
+                <div>
+                  <span className="text-sm font-medium text-slate-900">Bayar Penuh</span>
+                  <p className="text-xs text-slate-500">Bayar 100% langsung</p>
+                </div>
+              </label>
+            </div>
           </div>
 
           {/* Catatan */}

@@ -17,13 +17,13 @@ export const siteConfig = {
   ],
   author: 'PT. Solusi Rental Indonesia',
   contacts: {
-    whatsapp: '+6281370116181',
-    whatsappDisplay: '+62 813-7011-6181',
-    phone: '+6285370118553',
-    phoneDisplay: '+62 853-7011-8553',
+    whatsapp: '+6281370446181',
+    whatsappDisplay: '+62 813-7044-6181',
+    phone: '+6281370446181',
+    phoneDisplay: '+62 813-7044-6181',
     email: 'ptsolusirentalindonesia0825@gmail.com',
     address:
       'Jl. Selamat No. 8B, Medan Denai, Kota Medan, Sumatera Utara, 20228',
   },
-  whatsappUrl: 'https://wa.me/6281370116181',
+  whatsappUrl: 'https://wa.me/6281370446181',
 } as const;
