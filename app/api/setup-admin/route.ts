@@ -4,10 +4,11 @@ import { NextResponse } from 'next/server';
 const ADMIN_EMAIL = 'muhivan752@gmail.com';
 const ADMIN_PASSWORD = 'admin123!';
 
-async function ensureStorageBucket(supabase: ReturnType<typeof createClient>) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function ensureStorageBucket(supabase: any) {
   // Check if bucket exists
   const { data: buckets } = await supabase.storage.listBuckets();
-  const bucketExists = buckets?.some((b) => b.id === 'fleet-images');
+  const bucketExists = buckets?.some((b: { id: string }) => b.id === 'fleet-images');
 
   if (!bucketExists) {
     const { error } = await supabase.storage.createBucket('fleet-images', {
