@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sketch — Transfer Bandara Section + Admin Panel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: { 50:'#FBF7E4', 100:'#F5EDC8', 200:'#EBDB91', 300:'#E1C95A', 400:'#D4AF37', DEFAULT:'#D4AF37', 600:'#B8941E', 700:'#8C6F17', 800:'#604C10', 900:'#342908' },
+            navy: { 50:'#E8EEF1', 100:'#C5D3DA', 200:'#8DA8B5', 300:'#557C90', 400:'#2D5468', DEFAULT:'#1A2F3D', 600:'#152731', 700:'#101E26', 800:'#0B151A', 900:'#060B0D' },
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <style>
+    * { font-family: 'Inter', system-ui, sans-serif; }
+    .tab-active { background: #D4AF37; color: #1A2F3D; }
+    .tab-inactive { background: white; color: #555; border: 1px solid #e2e8f0; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+  </style>
+</head>
+<body class="bg-slate-100">
+
+  <!-- ============================================ -->
+  <!-- SKETCH HEADER -->
+  <!-- ============================================ -->
+  <div class="bg-navy text-white py-4 px-6 sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div>
+        <h1 class="text-xl font-bold">
+          <span class="text-gold">SKETCH</span> — Transfer Bandara & Stasiun
+        </h1>
+        <p class="text-sm text-slate-300 mt-1">Preview layout sebelum implementasi. Scroll ke bawah buat liat semua.</p>
+      </div>
+      <div class="flex gap-3">
+        <a href="#landing" class="px-4 py-2 rounded-full bg-gold text-navy-900 text-sm font-semibold hover:bg-gold-300 transition">Landing Page</a>
+        <a href="#admin" class="px-4 py-2 rounded-full border border-white/30 text-sm font-semibold hover:bg-white/10 transition">Admin Panel</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- PART 1: LANDING PAGE SECTION -->
+  <!-- ============================================ -->
+  <div id="landing" class="pt-8 pb-4 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-slate-200 rounded-xl p-4 mb-4 text-center text-slate-500 text-sm">
+        <p>↑ ... Section Services di atas ...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSFER SECTION -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section Header -->
+      <div class="mb-14 text-center">
+        <div class="inline-flex items-center gap-2 bg-gold/10 px-4 py-1.5 rounded-full mb-4">
+          <svg class="h-4 w-4 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0 0 21 18.382V7.618a1 1 0 0 0-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+          <span class="text-sm font-medium text-gold-700">Transfer & Antar Jemput</span>
+        </div>
+        <h2 class="mb-4 text-3xl font-bold text-slate-900 sm:text-4xl">
+          Transfer Bandara & Stasiun
+        </h2>
+        <p class="mx-auto max-w-2xl text-lg text-slate-600">
+          Layanan antar jemput dari dan ke Bandara, Stasiun, Pelabuhan & Terminal.
+          Harga transparan, tanpa biaya tersembunyi.
+        </p>
+      </div>
+
+      <!-- Tab Filter -->
+      <div class="flex flex-wrap justify-center gap-3 mb-10">
+        <button class="tab-active px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-md">
+          <span class="flex items-center gap-2">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"/><polygon points="12 15 17 21 7 21 12 15"/></svg>
+            Bandara
+          </span>
+        </button>
+        <button class="tab-inactive px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:shadow-md hover:-translate-y-0.5">
+          <span class="flex items-center gap-2">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/></svg>
+            Stasiun
+          </span>
+        </button>
+        <button class="tab-inactive px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:shadow-md hover:-translate-y-0.5">
+          <span class="flex items-center gap-2">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 20l.8-2.7A6 6 0 0 1 2 14.5C2 10.9 5.6 8 10 8s8 2.9 8 6.5-3.6 6.5-8 6.5c-.7 0-1.4-.1-2.1-.2L2 20z"/></svg>
+            Pelabuhan
+          </span>
+        </button>
+        <button class="tab-inactive px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:shadow-md hover:-translate-y-0.5">
+          <span class="flex items-center gap-2">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="6" width="22" height="12" rx="2"/><path d="M1 10h22"/></svg>
+            Terminal
+          </span>
+        </button>
+      </div>
+
+      <!-- Route Cards Grid -->
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+        <!-- Card 1 -->
+        <div class="group bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 hover:ring-2 hover:ring-gold/20">
+          <!-- Route Header -->
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-gold group-hover:text-navy-900 transition-colors">
+                <svg class="h-5 w-5 text-gold group-hover:text-navy-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"/><polygon points="12 15 17 21 7 21 12 15"/></svg>
+              </div>
+              <span class="text-xs font-medium text-gold-700 bg-gold/10 px-2.5 py-1 rounded-full">Bandara</span>
+            </div>
+            <span class="text-xs text-slate-400">~45 min</span>
+          </div>
+
+          <!-- Route Detail -->
+          <div class="mb-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="flex flex-col items-center gap-1">
+                <div class="h-3 w-3 rounded-full bg-gold ring-4 ring-gold/20"></div>
+                <div class="w-0.5 h-8 bg-gradient-to-b from-gold to-slate-200"></div>
+                <div class="h-3 w-3 rounded-full bg-navy ring-4 ring-navy/20"></div>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-semibold text-slate-900">Bandara Kualanamu (KNO)</p>
+                <div class="my-2"></div>
+                <p class="text-sm font-semibold text-slate-900">Kota Medan</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vehicle Options -->
+          <div class="bg-slate-50 rounded-xl p-3 mb-4">
+            <p class="text-xs font-medium text-slate-500 mb-2">Pilihan Kendaraan:</p>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <svg class="h-3.5 w-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                  <span class="text-xs text-slate-600">Avanza / Xenia</span>
+                  <span class="text-xs text-slate-400">(6 seat)</span>
+                </div>
+                <span class="text-sm font-bold text-gold">Rp ---</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <svg class="h-3.5 w-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                  <span class="text-xs text-slate-600">Innova Reborn</span>
+                  <span class="text-xs text-slate-400">(6 seat)</span>
+                </div>
+                <span class="text-sm font-bold text-gold">Rp ---</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <svg class="h-3.5 w-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                  <span class="text-xs text-slate-600">HiAce Premio</span>
+                  <span class="text-xs text-slate-400">(14 seat)</span>
+                </div>
+                <span class="text-sm font-bold text-gold">Rp ---</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Includes -->
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="inline-flex items-center gap-1 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              Toll
+            </span>
+            <span class="inline-flex items-center gap-1 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              Parkir
+            </span>
+            <span class="inline-flex items-center gap-1 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              Driver
+            </span>
+            <span class="inline-flex items-center gap-1 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              BBM
+            </span>
+          </div>
+
+          <!-- CTA -->
+          <button class="w-full flex items-center justify-center gap-2 bg-gold text-navy-900 font-semibold py-3 rounded-full hover:bg-gold-300 shadow-lg shadow-gold/25 transition-all text-sm">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Pesan via WhatsApp
+          </button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="group bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 hover:ring-2 hover:ring-gold/20">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-gold group-hover:text-navy-900 transition-colors">
+                <svg class="h-5 w-5 text-gold group-hover:text-navy-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"/><polygon points="12 15 17 21 7 21 12 15"/></svg>
+              </div>
+              <span class="text-xs font-medium text-gold-700 bg-gold/10 px-2.5 py-1 rounded-full">Bandara</span>
+            </div>
+            <span class="text-xs text-slate-400">~30 min</span>
+          </div>
+
+          <div class="mb-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="flex flex-col items-center gap-1">
+                <div class="h-3 w-3 rounded-full bg-gold ring-4 ring-gold/20"></div>
+                <div class="w-0.5 h-8 bg-gradient-to-b from-gold to-slate-200"></div>
+                <div class="h-3 w-3 rounded-full bg-navy ring-4 ring-navy/20"></div>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-semibold text-slate-900">Bandara Soekarno-Hatta (CGK)</p>
+                <div class="my-2"></div>
+                <p class="text-sm font-semibold text-slate-900">Jakarta Pusat</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 rounded-xl p-3 mb-4">
+            <p class="text-xs font-medium text-slate-500 mb-2">Pilihan Kendaraan:</p>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <svg class="h-3.5 w-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                  <span class="text-xs text-slate-600">Avanza / Xenia</span>
+                  <span class="text-xs text-slate-400">(6 seat)</span>
+                </div>
+                <span class="text-sm font-bold text-gold">Rp ---</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <svg class="h-3.5 w-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                  <span class="text-xs text-slate-600">Innova Reborn</span>
+                  <span class="text-xs text-slate-400">(6 seat)</span>
+                </div>
+                <span class="text-sm font-bold text-gold">Rp ---</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <svg class="h-3.5 w-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                  <span class="text-xs text-slate-600">Alphard / Vellfire</span>
+                  <span class="text-xs text-slate-400">(6 seat)</span>
+                </div>
+                <span class="text-sm font-bold text-gold">Rp ---</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="inline-flex items-center gap-1 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              Toll
+            </span>
+            <span class="inline-flex items-center gap-1 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              Parkir
+            </span>
+            <span class="inline-flex items-center gap-1 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              Driver
+            </span>
+            <span class="inline-flex items-center gap-1 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              BBM
+            </span>
+          </div>
+
+          <button class="w-full flex items-center justify-center gap-2 bg-gold text-navy-900 font-semibold py-3 rounded-full hover:bg-gold-300 shadow-lg shadow-gold/25 transition-all text-sm">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Pesan via WhatsApp
+          </button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="group bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 hover:ring-2 hover:ring-gold/20">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-gold group-hover:text-navy-900 transition-colors">
+                <svg class="h-5 w-5 text-gold group-hover:text-navy-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"/><polygon points="12 15 17 21 7 21 12 15"/></svg>
+              </div>
+              <span class="text-xs font-medium text-gold-700 bg-gold/10 px-2.5 py-1 rounded-full">Bandara</span>
+            </div>
+            <span class="text-xs text-slate-400">~60 min</span>
+          </div>
+
+          <div class="mb-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="flex flex-col items-center gap-1">
+                <div class="h-3 w-3 rounded-full bg-gold ring-4 ring-gold/20"></div>
+                <div class="w-0.5 h-8 bg-gradient-to-b from-gold to-slate-200"></div>
+                <div class="h-3 w-3 rounded-full bg-navy ring-4 ring-navy/20"></div>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-semibold text-slate-900">Bandara Ngurah Rai (DPS)</p>
+                <div class="my-2"></div>
+                <p class="text-sm font-semibold text-slate-900">Ubud, Bali</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 rounded-xl p-3 mb-4">
+            <p class="text-xs font-medium text-slate-500 mb-2">Pilihan Kendaraan:</p>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <svg class="h-3.5 w-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                  <span class="text-xs text-slate-600">Avanza / Xenia</span>
+                  <span class="text-xs text-slate-400">(6 seat)</span>
+                </div>
+                <span class="text-sm font-bold text-gold">Rp ---</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <svg class="h-3.5 w-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                  <span class="text-xs text-slate-600">Innova Reborn</span>
+                  <span class="text-xs text-slate-400">(6 seat)</span>
+                </div>
+                <span class="text-sm font-bold text-gold">Rp ---</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <svg class="h-3.5 w-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                  <span class="text-xs text-slate-600">HiAce Premio</span>
+                  <span class="text-xs text-slate-400">(14 seat)</span>
+                </div>
+                <span class="text-sm font-bold text-gold">Rp ---</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="inline-flex items-center gap-1 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              Toll
+            </span>
+            <span class="inline-flex items-center gap-1 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              Parkir
+            </span>
+            <span class="inline-flex items-center gap-1 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              Driver
+            </span>
+            <span class="inline-flex items-center gap-1 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              BBM
+            </span>
+          </div>
+
+          <button class="w-full flex items-center justify-center gap-2 bg-gold text-navy-900 font-semibold py-3 rounded-full hover:bg-gold-300 shadow-lg shadow-gold/25 transition-all text-sm">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Pesan via WhatsApp
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Info Banner -->
+      <div class="mt-10 bg-gradient-to-r from-navy-900 via-navy to-navy-800 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
+        <div class="h-14 w-14 rounded-2xl bg-gold/20 flex items-center justify-center flex-shrink-0">
+          <svg class="h-7 w-7 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="text-center sm:text-left flex-1">
+          <h3 class="text-white font-bold text-lg mb-1">Rute tidak ada di daftar?</h3>
+          <p class="text-slate-300 text-sm">Hubungi kami untuk rute custom. Kami melayani transfer ke seluruh kota di Indonesia.</p>
+        </div>
+        <button class="flex items-center gap-2 bg-gold text-navy-900 font-semibold px-6 py-3 rounded-full hover:bg-gold-300 shadow-lg shadow-gold/25 transition-all text-sm whitespace-nowrap">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Hubungi Kami
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-slate-200 rounded-xl p-4 text-center text-slate-500 text-sm">
+        <p>↓ ... Section How It Works di bawah ...</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================ -->
+  <!-- PART 2: ADMIN PANEL -->
+  <!-- ============================================ -->
+  <div id="admin" class="mt-20 pt-8 pb-4 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-navy text-white rounded-2xl p-6 mb-8">
+        <h2 class="text-2xl font-bold mb-2">
+          <span class="text-gold">Admin Panel</span> — Kelola Transfer
+        </h2>
+        <p class="text-slate-300">Ini tampilan halaman admin buat manage rute transfer. Lo bisa tambah, edit, hapus rute & isi harga.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin: Stats Bar -->
+  <div class="px-6 mb-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="bg-white rounded-xl p-5 border border-slate-200">
+        <p class="text-sm text-slate-500 mb-1">Total Rute</p>
+        <p class="text-2xl font-bold text-slate-900">12</p>
+      </div>
+      <div class="bg-white rounded-xl p-5 border border-slate-200">
+        <p class="text-sm text-slate-500 mb-1">Rute Aktif</p>
+        <p class="text-2xl font-bold text-green-600">8</p>
+      </div>
+      <div class="bg-white rounded-xl p-5 border border-slate-200">
+        <p class="text-sm text-slate-500 mb-1">Bandara</p>
+        <p class="text-2xl font-bold text-gold">5</p>
+      </div>
+      <div class="bg-white rounded-xl p-5 border border-slate-200">
+        <p class="text-sm text-slate-500 mb-1">Stasiun</p>
+        <p class="text-2xl font-bold text-blue-600">3</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin: Table + Add Form -->
+  <div class="px-6 pb-20">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Action Bar -->
+      <div class="bg-white rounded-t-2xl border border-slate-200 border-b-0 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <h3 class="text-lg font-bold text-slate-900">Daftar Rute Transfer</h3>
+          <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">12 rute</span>
+        </div>
+        <div class="flex gap-3 w-full sm:w-auto">
+          <div class="relative flex-1 sm:flex-none">
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" placeholder="Cari rute..." class="w-full sm:w-64 pl-9 pr-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold">
+          </div>
+          <button class="flex items-center gap-2 bg-gold text-navy-900 font-semibold px-5 py-2.5 rounded-xl hover:bg-gold-300 transition-all text-sm shadow-sm">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14m-7-7h14"/></svg>
+            Tambah Rute
+          </button>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="bg-white border border-slate-200 rounded-b-2xl overflow-hidden">
+        <div class="overflow-x-auto scrollbar-hide">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-slate-50 border-b border-slate-200">
+                <th class="text-left py-3.5 px-5 font-semibold text-slate-600">Rute</th>
+                <th class="text-left py-3.5 px-5 font-semibold text-slate-600">Tipe</th>
+                <th class="text-left py-3.5 px-5 font-semibold text-slate-600">Kendaraan</th>
+                <th class="text-right py-3.5 px-5 font-semibold text-slate-600">Harga</th>
+                <th class="text-left py-3.5 px-5 font-semibold text-slate-600">Estimasi</th>
+                <th class="text-center py-3.5 px-5 font-semibold text-slate-600">Status</th>
+                <th class="text-center py-3.5 px-5 font-semibold text-slate-600">Aksi</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <!-- Row 1 -->
+              <tr class="hover:bg-slate-50/50 transition-colors">
+                <td class="py-4 px-5">
+                  <div>
+                    <p class="font-semibold text-slate-900">Kualanamu → Medan Kota</p>
+                    <p class="text-xs text-slate-400 mt-0.5">Bandara Kualanamu (KNO)</p>
+                  </div>
+                </td>
+                <td class="py-4 px-5">
+                  <span class="text-xs font-medium text-gold-700 bg-gold/10 px-2.5 py-1 rounded-full">Bandara</span>
+                </td>
+                <td class="py-4 px-5">
+                  <p class="text-slate-700">Avanza / Xenia</p>
+                  <p class="text-xs text-slate-400">6 seat</p>
+                </td>
+                <td class="py-4 px-5 text-right">
+                  <span class="font-bold text-gold">Rp ---</span>
+                  <p class="text-xs text-orange-500 mt-0.5">Belum diisi</p>
+                </td>
+                <td class="py-4 px-5 text-slate-600">~45 min</td>
+                <td class="py-4 px-5 text-center">
+                  <span class="inline-flex items-center gap-1.5 text-xs font-medium text-green-700 bg-green-50 px-3 py-1 rounded-full">
+                    <span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                    Aktif
+                  </span>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="flex items-center justify-center gap-2">
+                    <button class="h-8 w-8 rounded-lg border border-slate-200 flex items-center justify-center hover:bg-gold/10 hover:border-gold/30 transition-colors" title="Edit">
+                      <svg class="h-3.5 w-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+                    </button>
+                    <button class="h-8 w-8 rounded-lg border border-slate-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-colors" title="Hapus">
+                      <svg class="h-3.5 w-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 2 -->
+              <tr class="hover:bg-slate-50/50 transition-colors">
+                <td class="py-4 px-5">
+                  <div>
+                    <p class="font-semibold text-slate-900">Kualanamu → Parapat</p>
+                    <p class="text-xs text-slate-400 mt-0.5">Bandara Kualanamu (KNO)</p>
+                  </div>
+                </td>
+                <td class="py-4 px-5">
+                  <span class="text-xs font-medium text-gold-700 bg-gold/10 px-2.5 py-1 rounded-full">Bandara</span>
+                </td>
+                <td class="py-4 px-5">
+                  <p class="text-slate-700">Innova Reborn</p>
+                  <p class="text-xs text-slate-400">6 seat</p>
+                </td>
+                <td class="py-4 px-5 text-right">
+                  <span class="font-bold text-gold">Rp ---</span>
+                  <p class="text-xs text-orange-500 mt-0.5">Belum diisi</p>
+                </td>
+                <td class="py-4 px-5 text-slate-600">~4 jam</td>
+                <td class="py-4 px-5 text-center">
+                  <span class="inline-flex items-center gap-1.5 text-xs font-medium text-green-700 bg-green-50 px-3 py-1 rounded-full">
+                    <span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                    Aktif
+                  </span>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="flex items-center justify-center gap-2">
+                    <button class="h-8 w-8 rounded-lg border border-slate-200 flex items-center justify-center hover:bg-gold/10 hover:border-gold/30 transition-colors" title="Edit">
+                      <svg class="h-3.5 w-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+                    </button>
+                    <button class="h-8 w-8 rounded-lg border border-slate-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-colors" title="Hapus">
+                      <svg class="h-3.5 w-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <!-- Row 3 - Nonaktif -->
+              <tr class="hover:bg-slate-50/50 transition-colors bg-slate-50/30">
+                <td class="py-4 px-5">
+                  <div>
+                    <p class="font-semibold text-slate-900">Stasiun Gambir → Bandung</p>
+                    <p class="text-xs text-slate-400 mt-0.5">Stasiun Gambir, Jakarta</p>
+                  </div>
+                </td>
+                <td class="py-4 px-5">
+                  <span class="text-xs font-medium text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full">Stasiun</span>
+                </td>
+                <td class="py-4 px-5">
+                  <p class="text-slate-700">HiAce Premio</p>
+                  <p class="text-xs text-slate-400">14 seat</p>
+                </td>
+                <td class="py-4 px-5 text-right">
+                  <span class="font-bold text-gold">Rp ---</span>
+                  <p class="text-xs text-orange-500 mt-0.5">Belum diisi</p>
+                </td>
+                <td class="py-4 px-5 text-slate-600">~3 jam</td>
+                <td class="py-4 px-5 text-center">
+                  <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
+                    <span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+                    Nonaktif
+                  </span>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="flex items-center justify-center gap-2">
+                    <button class="h-8 w-8 rounded-lg border border-slate-200 flex items-center justify-center hover:bg-gold/10 hover:border-gold/30 transition-colors" title="Edit">
+                      <svg class="h-3.5 w-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+                    </button>
+                    <button class="h-8 w-8 rounded-lg border border-slate-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-colors" title="Hapus">
+                      <svg class="h-3.5 w-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Admin: Add/Edit Form Modal Preview -->
+      <div class="mt-10">
+        <div class="bg-navy text-white rounded-t-2xl p-5">
+          <h3 class="text-lg font-bold flex items-center gap-2">
+            <svg class="h-5 w-5 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14m-7-7h14"/></svg>
+            Form Tambah / Edit Rute
+          </h3>
+          <p class="text-sm text-slate-300 mt-1">Preview modal form yang muncul saat klik "Tambah Rute" atau "Edit"</p>
+        </div>
+        <div class="bg-white border border-slate-200 border-t-0 rounded-b-2xl p-6 sm:p-8">
+          <div class="grid gap-5 sm:grid-cols-2">
+            <!-- Tipe -->
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-2">Tipe Transfer</label>
+              <select class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold bg-white">
+                <option>Bandara</option>
+                <option>Stasiun</option>
+                <option>Pelabuhan</option>
+                <option>Terminal</option>
+              </select>
+            </div>
+            <!-- Estimasi -->
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-2">Estimasi Waktu</label>
+              <input type="text" placeholder="Contoh: ~45 min" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold">
+            </div>
+            <!-- Asal -->
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-2">Lokasi Asal</label>
+              <input type="text" placeholder="Contoh: Bandara Kualanamu (KNO)" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold">
+            </div>
+            <!-- Tujuan -->
+            <div>
+              <label class="block text-sm font-medium text-slate-700 mb-2">Lokasi Tujuan</label>
+              <input type="text" placeholder="Contoh: Kota Medan" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold">
+            </div>
+          </div>
+
+          <!-- Vehicle Pricing Section -->
+          <div class="mt-6">
+            <label class="block text-sm font-medium text-slate-700 mb-3">Harga per Kendaraan</label>
+            <div class="bg-slate-50 rounded-xl p-4 space-y-3">
+              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 bg-white rounded-lg p-3 border border-slate-100">
+                <div class="flex items-center gap-2 flex-1">
+                  <input type="checkbox" checked class="h-4 w-4 rounded border-slate-300 text-gold focus:ring-gold accent-amber-500">
+                  <span class="text-sm font-medium text-slate-700 min-w-[140px]">Avanza / Xenia</span>
+                  <span class="text-xs text-slate-400">(6 seat)</span>
+                </div>
+                <div class="relative w-full sm:w-48">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-slate-400">Rp</span>
+                  <input type="text" placeholder="0" class="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-sm text-right focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold">
+                </div>
+              </div>
+              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 bg-white rounded-lg p-3 border border-slate-100">
+                <div class="flex items-center gap-2 flex-1">
+                  <input type="checkbox" checked class="h-4 w-4 rounded border-slate-300 text-gold focus:ring-gold accent-amber-500">
+                  <span class="text-sm font-medium text-slate-700 min-w-[140px]">Innova Reborn</span>
+                  <span class="text-xs text-slate-400">(6 seat)</span>
+                </div>
+                <div class="relative w-full sm:w-48">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-slate-400">Rp</span>
+                  <input type="text" placeholder="0" class="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-sm text-right focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold">
+                </div>
+              </div>
+              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 bg-white rounded-lg p-3 border border-slate-100">
+                <div class="flex items-center gap-2 flex-1">
+                  <input type="checkbox" class="h-4 w-4 rounded border-slate-300 text-gold focus:ring-gold accent-amber-500">
+                  <span class="text-sm font-medium text-slate-700 min-w-[140px]">Alphard / Vellfire</span>
+                  <span class="text-xs text-slate-400">(6 seat)</span>
+                </div>
+                <div class="relative w-full sm:w-48">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-slate-400">Rp</span>
+                  <input type="text" placeholder="0" class="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-sm text-right focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold">
+                </div>
+              </div>
+              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 bg-white rounded-lg p-3 border border-slate-100">
+                <div class="flex items-center gap-2 flex-1">
+                  <input type="checkbox" class="h-4 w-4 rounded border-slate-300 text-gold focus:ring-gold accent-amber-500">
+                  <span class="text-sm font-medium text-slate-700 min-w-[140px]">HiAce Premio</span>
+                  <span class="text-xs text-slate-400">(14 seat)</span>
+                </div>
+                <div class="relative w-full sm:w-48">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-slate-400">Rp</span>
+                  <input type="text" placeholder="0" class="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-sm text-right focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Include checkboxes -->
+          <div class="mt-6">
+            <label class="block text-sm font-medium text-slate-700 mb-3">Include (Sudah Termasuk)</label>
+            <div class="flex flex-wrap gap-4">
+              <label class="flex items-center gap-2 text-sm text-slate-600">
+                <input type="checkbox" checked class="h-4 w-4 rounded border-slate-300 accent-amber-500"> Toll
+              </label>
+              <label class="flex items-center gap-2 text-sm text-slate-600">
+                <input type="checkbox" checked class="h-4 w-4 rounded border-slate-300 accent-amber-500"> Parkir
+              </label>
+              <label class="flex items-center gap-2 text-sm text-slate-600">
+                <input type="checkbox" checked class="h-4 w-4 rounded border-slate-300 accent-amber-500"> Driver
+              </label>
+              <label class="flex items-center gap-2 text-sm text-slate-600">
+                <input type="checkbox" checked class="h-4 w-4 rounded border-slate-300 accent-amber-500"> BBM
+              </label>
+            </div>
+          </div>
+
+          <!-- Status Toggle -->
+          <div class="mt-6 flex items-center justify-between">
+            <div>
+              <label class="block text-sm font-medium text-slate-700">Status</label>
+              <p class="text-xs text-slate-400 mt-0.5">Rute yang nonaktif tidak tampil di landing page</p>
+            </div>
+            <div class="relative">
+              <div class="w-12 h-7 bg-gold rounded-full shadow-inner flex items-center">
+                <div class="w-5 h-5 bg-white rounded-full shadow-md ml-auto mr-1 transition-all"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="mt-8 flex gap-3 justify-end">
+            <button class="px-6 py-3 border border-slate-200 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-50 transition-all">
+              Batal
+            </button>
+            <button class="px-6 py-3 bg-gold text-navy-900 rounded-xl text-sm font-semibold hover:bg-gold-300 shadow-lg shadow-gold/25 transition-all">
+              Simpan Rute
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer note -->
+  <div class="bg-navy text-center py-8 mt-10">
+    <p class="text-slate-400 text-sm">Ini sketch preview — bukan halaman production</p>
+    <p class="text-slate-500 text-xs mt-2">Buka file ini di browser: sketch-transfer.html</p>
+  </div>
+
+</body>
+</html>
