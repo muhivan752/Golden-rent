@@ -3,7 +3,7 @@ import Container from '@/components/shared/Container';
 
 const milestones = [
   'Berdiri tahun 2024 di Medan, Sumatera Utara',
-  'Ekspansi ke 10+ kota besar di Indonesia',
+  'Ekspansi ke 33 provinsi di seluruh Indonesia',
   'Membangun jaringan 50+ mitra rental terpercaya',
   'Melayani 2.000+ trip untuk personal & corporate',
 ];

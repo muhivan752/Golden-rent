@@ -30,7 +30,7 @@ export default function CTA() {
             Chat WhatsApp
           </Button>
           <Button
-            href={`tel:${siteConfig.contacts.whatsapp}`}
+            href={`tel:${siteConfig.contacts.admin1.phone}`}
             variant="white"
             size="lg"
           >

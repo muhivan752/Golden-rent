@@ -23,7 +23,7 @@ export default function Coverage() {
             Jangkauan <span className="text-gold">Nasional</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-slate-400">
-            Tersedia di 10 kota besar di seluruh Indonesia melalui jaringan mitra kami
+            Tersedia di 33 provinsi di seluruh Indonesia melalui jaringan mitra kami
           </p>
         </div>
 

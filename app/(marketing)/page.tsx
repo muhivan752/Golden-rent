@@ -64,7 +64,7 @@ export default async function HomePage() {
             name: siteConfig.name,
             description: siteConfig.description,
             url: siteConfig.url,
-            telephone: siteConfig.contacts.whatsapp,
+            telephone: siteConfig.contacts.admin1.phone,
             email: siteConfig.contacts.email,
             address: {
               '@type': 'PostalAddress',

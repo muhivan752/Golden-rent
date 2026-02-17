@@ -79,22 +79,24 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href={siteConfig.whatsappUrl}
+                  href={`https://wa.me/${siteConfig.contacts.admin1.whatsapp.replace('+', '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 transition-colors hover:text-gold"
                 >
                   <MessageCircle className="h-4 w-4 text-gold" />
-                  {siteConfig.contacts.whatsappDisplay}
+                  {siteConfig.contacts.admin1.whatsappDisplay} (Admin 1)
                 </a>
               </li>
               <li>
                 <a
-                  href={`tel:${siteConfig.contacts.phone}`}
+                  href={`https://wa.me/${siteConfig.contacts.admin2.whatsapp.replace('+', '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 transition-colors hover:text-gold"
                 >
-                  <Phone className="h-4 w-4 text-gold" />
-                  {siteConfig.contacts.phoneDisplay}
+                  <MessageCircle className="h-4 w-4 text-gold" />
+                  {siteConfig.contacts.admin2.whatsappDisplay} (Admin 2)
                 </a>
               </li>
               <li>

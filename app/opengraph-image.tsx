@@ -86,7 +86,7 @@ export default function OgImage() {
               color: '#cbd5e1',
             }}
           >
-            <span>10+ Kota</span>
+            <span>33 Provinsi</span>
             <span style={{ color: '#10b981' }}>•</span>
             <span>Armada Modern</span>
             <span style={{ color: '#10b981' }}>•</span>

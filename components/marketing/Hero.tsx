@@ -70,7 +70,7 @@ export default function Hero() {
           <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-400">
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-gold" />
-              <span>10+ Kota</span>
+              <span>33 Provinsi</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-gold" />
