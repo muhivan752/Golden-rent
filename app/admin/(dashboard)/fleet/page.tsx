@@ -22,7 +22,7 @@ const emptyForm: FormData = {
 };
 
 const fuelOptions = ['Bensin', 'Diesel', 'Hybrid', 'Elektrik'] as const;
-const categoryOptions = ['City Car', 'MPV', 'SUV', 'Sedan', 'Luxury MPV'] as const;
+const categoryOptions = ['City Car', 'MPV', 'SUV', 'Sedan', 'Luxury MPV', 'Minibus', 'Bus'] as const;
 
 export default function AdminFleetPage() {
   const [items, setItems] = useState<DbFleetItem[]>([]);
