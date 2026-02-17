@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { X, MessageCircle, MapPin, Calendar, Car, User, Phone, Wallet } from 'lucide-react';
+import { X, MessageCircle, MapPin, Calendar, Car, User, Phone, Wallet, Clock } from 'lucide-react';
 import type { FleetItem } from '@/lib/types';
 import { siteConfig } from '@/config/site';
 
@@ -43,6 +43,7 @@ export default function BookingModal({ vehicle, onClose }: BookingModalProps) {
     durasi: 'harian',
     tanggalMulai: '',
     tanggalSelesai: '',
+    jamJemput: '',
     lokasiJemput: '',
     lokasiTujuan: '',
     pembayaran: 'dp-25',
@@ -73,6 +74,7 @@ export default function BookingModal({ vehicle, onClose }: BookingModalProps) {
       `*Durasi:* ${durasiLabel}`,
       form.tanggalMulai && `*Mulai:* ${form.tanggalMulai}`,
       form.tanggalSelesai && `*Selesai:* ${form.tanggalSelesai}`,
+      form.jamJemput && `*Jam Jemput:* ${form.jamJemput}`,
       form.lokasiJemput && `*Lokasi Penjemputan:* ${form.lokasiJemput}`,
       form.lokasiTujuan && `*Lokasi Tujuan:* ${form.lokasiTujuan}`,
       `*Pembayaran:* ${pembayaranLabel}`,
@@ -220,8 +222,8 @@ export default function BookingModal({ vehicle, onClose }: BookingModalProps) {
             </div>
           </div>
 
-          {/* Tanggal */}
-          <div className="grid gap-4 sm:grid-cols-2">
+          {/* Tanggal & Jam Jemput */}
+          <div className="grid gap-4 sm:grid-cols-3">
             <div>
               <label className={labelClass}>Tanggal Mulai *</label>
               <input
@@ -240,6 +242,20 @@ export default function BookingModal({ vehicle, onClose }: BookingModalProps) {
                 name="tanggalSelesai"
                 required
                 value={form.tanggalSelesai}
+                onChange={handleChange}
+                className={inputClass}
+              />
+            </div>
+            <div>
+              <label className={labelClass}>
+                <Clock className="h-3.5 w-3.5 text-gold" />
+                Jam Jemput *
+              </label>
+              <input
+                type="time"
+                name="jamJemput"
+                required
+                value={form.jamJemput}
                 onChange={handleChange}
                 className={inputClass}
               />
